@@ -1,4 +1,12 @@
 from django.contrib import admin
 from .models import Recipe
-# nejsem si jista jestli to je recipe ve videu to je post
-admin.site.register(Recipe)
+from django_summernote.admin import SummernoteModelAdmin
+
+
+
+class RecipeAdmin(SummernoteModelAdmin):
+
+    summernote_fields = ('content')
+
+
+admin.site.register(Recipe, RecipeAdmin)
