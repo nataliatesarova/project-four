@@ -26,6 +26,5 @@ class AdminComment(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
 
-
  # Register the Comment model with the AdminComment configuration
 admin.site.register(Comment, AdminComment)
