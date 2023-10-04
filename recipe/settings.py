@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'blog',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -94,6 +95,14 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+# Authentications Backends
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Default Authentications URLS
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
