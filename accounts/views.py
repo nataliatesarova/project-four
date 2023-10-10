@@ -13,6 +13,7 @@ from django.views.generic import CreateView
 class RegisterView(CreateView):
     template_name = 'registration.html'
     form_class = UserCreationForm
+    # After registration, the user will be redirected to the login page (URL pattern name: 'login').
     success_url = reverse_lazy('login')
 
 # User login view
