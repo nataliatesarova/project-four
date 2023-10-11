@@ -7,5 +7,11 @@ urlpatterns = [
     # Create recipe
     path('create_recipe/', views.create_recipe, name='create_recipe'),
     # Recipe Detail
-    # path('recipe/<int:recipe_id>/', views.RecipeDetails, name='recipe_detail'),
+    path('recipe/<int:recipe_id>/', views.RecipeDetails, name='recipe_detail'),
+    # Edit recipe
+    path('edit_recipe/', views.EditRecipe, name='edit_recipe'),
+    # Delete recipe
+    # path('delete_recipe/', views.delete_recipe, name='delete_recipe'),
+
+
 ]
