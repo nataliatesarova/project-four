@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost',
+ALLOWED_HOSTS = ['localhost', '8001-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
                  '8000-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
                  'recipeblog-e0d016298fa8.herokuapp.com']
 
@@ -91,9 +91,14 @@ WSGI_APPLICATION = 'recipe.wsgi.application'
 #     }
 # }
 
+DATABASE_URL = os.environ.get("DATABASE_URL")
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(),
 }
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+# }
+
 
 # Authentications Backends
 AUTHENTICATION_BACKENDS = [
