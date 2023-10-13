@@ -47,8 +47,6 @@ def RecipeDetails(request, recipe_id):
     }
     return render(request, 'recipe_details.html', {'recipe': recipe})
 
-# Edit Recipe
-
 
 @login_required
 def EditRecipe(request, recipe_id):
@@ -57,27 +55,27 @@ def EditRecipe(request, recipe_id):
     if request.user != recipe.author:
         pass
     if request.method == 'POST':
-        form = RecipeForm(request.POST, request.FILES)
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
-            recipe.save()
+            form.save()
             # Redirect to the recipe detail page
             return redirect('recipe_detail', recipe_id=recipe.pk)
-        else:
-            form = RecipeForm(instance=recipe)
-        return render(request, 'blog/edit_recipe.html', {'form': form, 'recipe': recipe})
+    else:
+        form = RecipeForm(instance=recipe)
+    return render(request, 'blog/edit_recipe.html', {'form': form, 'recipe': recipe})
 
 
 # nevim jestli to je dobre
 
+@login_required
+def delete_recipe(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
 
-# @login_required
-# def delete_recipe(request):
-#     if request.method == 'POST':
-#         form = DeleteRecipeForm(request.POST)
-#         if form.is_valid() and form.cleaned_data['confirmation']:
-#             recipe.delete()
-#             return redirect('recipes')
-#     else:
-#         form = DeleteRecipeForm()
-
-#     return render(request, 'delete_recipe.html', {'recipe': recipe, 'form': form})
+    # Check if user is the recipe author
+    if request.user == recipe.author:
+        recipe.delete()
+        # Redirect to home page
+        return redirect('recipes')
+    else:
+        return redirect('recipe_detail', recipe_id=recipe.pk)
+    return render(request, 'delete_recipe.html', {'recipe': recipe, 'form': form})
