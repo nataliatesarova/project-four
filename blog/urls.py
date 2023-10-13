@@ -9,9 +9,8 @@ urlpatterns = [
     # Recipe Detail
     path('recipe/<int:recipe_id>/', views.RecipeDetails, name='recipe_detail'),
     # Edit recipe
-    path('edit_recipe/', views.EditRecipe, name='edit_recipe'),
+    path('edit_recipe/<int:recipe_id>/', views.EditRecipe, name='edit_recipe'),
     # Delete recipe
-    # path('delete_recipe/', views.delete_recipe, name='delete_recipe'),
-
-
+    path('recipe/<int:recipe_id>/delete/',
+         views.delete_recipe, name='delete_recipe'),
 ]
