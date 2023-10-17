@@ -13,4 +13,9 @@ urlpatterns = [
     # Delete recipe
     path('recipe/<int:recipe_id>/delete/',
          views.delete_recipe, name='delete_recipe'),
+    # Likes
+    # path('recipe_like/<int:recipe_id>/',
+    #      RecipeLike.as_view(), name='recipe_like'),
+    # path('recipes/<slug:recipe_slug>/',
+    #      views.recipe_detail, name='recipe_detail'),
 ]

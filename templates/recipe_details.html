@@ -1,4 +1,8 @@
 {% extends "base.html" %} {% block content %} {% load cloudinary %}
+
+<!-- Load crispy tags-->
+{% load crispy_forms_tags %}
+
 <h2>Recipe Details</h2>
 <div class="row">
   <div class="col-md-6 mb-4 m-auto">
@@ -14,6 +18,7 @@
         <h5 class="card-title">{{recipe.title}}</h5>
         <h4>Content</h4>
         <p class="card-text">{{recipe.excerpt}}</p>
+
         <!-- Edit and delete for authenticated user -->
         {% if user.is_authenticated %}
         <a href="{% url 'edit_recipe' recipe.pk %}" class="btn btn-primary"
@@ -23,9 +28,14 @@
           >Delete Recipe</a
         >
 
+        <!-- Render the comment form using Crispy Forms -->
+        <form method="post">
+          {% csrf_token %} {{ comment_form|crispy }}
+          <button type="submit">Add Comment</button>
+        </form>
         {% endif %}
       </div>
     </div>
   </div>
 </div>
-{%endblock%}
+{% endblock %}

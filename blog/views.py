@@ -1,8 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
+from django.http import HttpResponseRedirect
 from .forms import RecipeForm
 from .models import Recipe
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
+from .forms import CommentForm
 
 
 # class RecipeList(generic.ListView):
@@ -29,9 +33,13 @@ def create_recipe(request):
         if form.is_valid():
             recipe = form.save(commit=False)
             recipe.author = request.user
+            # Automatically generate a slug based on the recipe's title
+            recipe.slug = slugify(recipe.title)
             recipe.save()
-            # Redirect to the recipe detail page
-            return redirect('recipes')
+
+            # Redirect to the recipe detail page nevim jestli ten slug je takhle??
+            return redirect('recipes',)
+            # recipe_slug=recipe.slug
     else:
         form = RecipeForm()
 
@@ -39,13 +47,36 @@ def create_recipe(request):
 
 
 # View recipe details
+# def RecipeDetails(request, recipe_id):
+#     recipe = get_object_or_404(Recipe, pk=recipe_id)
+
+#     context = {
+#         'recipe': recipe
+#     }
+#     return render(request, 'recipe_details.html', {'recipe': recipe})
+
+# neivm jestli je to dobre
+
+
 def RecipeDetails(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            # Process and save the comment
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe  # Assuming a ForeignKey to Recipe in Comment model
+            comment.user = request.user  # Set the user who made the comment
+            comment.save()
+    else:
+        comment_form = CommentForm()  # Create a new CommentForm instance
+
     context = {
-        'recipe': recipe
+        'recipe': recipe,
+        'comment_form': comment_form,  # Include the comment form in the context
     }
-    return render(request, 'recipe_details.html', {'recipe': recipe})
+    return render(request, 'recipe_details.html', context)
 
 
 @login_required
@@ -79,3 +110,15 @@ def delete_recipe(request, recipe_id):
     else:
         return redirect('recipe_detail', recipe_id=recipe.pk)
     return render(request, 'delete_recipe.html', {'recipe': recipe, 'form': form})
+
+
+# class RecipeLike(View):
+
+#     def post(self, request, recipe_id, *args, **kwargs):
+#         recipe = get_object_or_404(Recipe, pk=recipe_id)
+#         if recipe.likes.filter(id=request.user.id).exists():
+#             recipe.likes.remove(request.user)
+#         else:
+#             recipe.likes.add(request.user)
+
+#         return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))
