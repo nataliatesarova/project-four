@@ -17,4 +17,21 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.email
 
+# create user profile
 
+
+class Profile(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    profile_picture = CloudinaryField('profile_picture', default='placeholder')
+    bio = models.TextField(blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+# return the username
+
+    def __str__(self):
+        return str(self.user.username)
+# check current user
+
+    def check_user(self):
+        return self.get.object().user == self.request.user
