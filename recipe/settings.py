@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'crispy_forms',
     'blog',
-    'accounts'
+    'accounts',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +107,9 @@ DATABASES = {
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+# Customized user model
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Default Authentications URLS
 LOGIN_REDIRECT_URL = '/'
