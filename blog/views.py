@@ -66,7 +66,7 @@ def RecipeDetails(request, recipe_id):
         if comment_form.is_valid():
             # Process and save the comment
             comment = comment_form.save(commit=False)
-            comment.recipe = recipe  # Assuming a ForeignKey to Recipe in Comment model
+            comment.recipe = recipe
             comment.user = request.user  # Set the user who made the comment
             comment.save()
     else:
