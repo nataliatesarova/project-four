@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetView, PasswordResetCompleteView
 from django.contrib.auth.forms import UserCreationForm
@@ -36,3 +36,15 @@ def register(request):
 class CustomLoginView(LoginView):
     template_name = 'login.html'
     success_url = 'index.html'
+
+# Profile details
+
+
+@login_required
+def profile_details(request, username):
+    user = get_object_or_404(CustomUser, username=username)
+    user_profile = get_object_or_404(Profile, user=user)
+    return render(request, 'profile/profile.html', {'user_profile': user_profile})
+
+
+
