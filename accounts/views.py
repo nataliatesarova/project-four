@@ -36,7 +36,7 @@ def register(request):
 class CustomLoginView(LoginView):
     template_name = 'login.html'
     success_url = 'index.html'
-
+    success_message = 'You are Logged in! Welcome'
 # Profile details
 
 
@@ -46,5 +46,32 @@ def profile_details(request, username):
     user_profile = get_object_or_404(Profile, user=user)
     return render(request, 'profile/profile.html', {'user_profile': user_profile})
 
+# Updating user profile
 
 
+@login_required
+def update_profile(request, username):
+    user = request.user
+    user_profile = Profile.objects.get(user=user)
+
+    if request.method == 'POST':
+        form = EditProfileForm(
+            request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            # Update the custom user's first name and last name
+            if request.POST.get('first_name') is not None:
+                user.first_name = request.POST.get('first_name')
+
+            if request.POST.get('last_name') is not None:
+                user.first_name = request.POST.get('last_name')
+
+            user.save()
+            # Redirect to the user's profile page
+            return redirect('profile', username=username)
+
+    else:
+        form = EditProfileForm(instance=user_profile)
+
+    return render(request, 'profile/update_profile.html', {'form': form})
+    
