@@ -1,22 +1,26 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="container-fluid">
+<div class="container">
   <!-- Blog Entries Column -->
   <div class="row">
     <h3>My blog</h3>
     <!-- for loop to display recipe details -->
     {% for recipe in recipe_list %}
-    <div class="col-md-4 mb-4">
+    <div class="col-md-3 mb-4">
       <div class="card">
-        <img
-          src="{{ recipe.featured_image.url }}"
-          class="card-img-top"
-          alt="{{ recipe.title }}"
-        />
+        <a href="{% url 'recipe_detail' recipe.slug %}">
+          <img
+            src="{{ recipe.featured_image.url }}"
+            class="card-img-top"
+            alt="{{ recipe.title }}"
+          />
+        </a>
         <div class="card-body">
           <h5 class="card-title">{{recipe.title}}</h5>
           <p class="card-text">{{recipe.content}}</p>
-          <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-primary"
+          <a
+            href="{% url 'recipe_detail' recipe.slug %}"
+            class="btn btn-primary"
             >View More Details</a
           >
         </div>
