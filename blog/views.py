@@ -79,12 +79,32 @@ def delete_recipe(request, slug):
         return redirect('recipe_detail', slug=recipe.slug)
     return render(request, 'recipe/delete_recipe.html', {'recipe': recipe})
 
-    # Likes
-    @login_required
-    def like_recipe(request, slug):
-        recipe = get_object_or_404(Recipe, slug=slug)
-        if request.user in recipe.likes.all():
-            recipe.likes.remove(request.user)
-        else:
-            recipe.likes.add(request.user)
-        return redirect('recipe_detail', slug=slug)
+# Likes
+
+
+@login_required
+def like_recipe(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
+    if request.user in recipe.likes.all():
+        recipe.likes.remove(request.user)
+    else:
+        recipe.likes.add(request.user)
+    return redirect('recipe_detail', slug=slug)
+
+# Comments
+
+
+def post_comment(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
+    user_featured_image_url = request.user.featured_image.url
+
+    if request.method == 'POST':
+        text = request.POST.get('comment_text')
+        # Comments are pending by default
+        Comment.objects.create(
+            post=recipe, user=request.user, text=text, status='pending')
+
+        comments = Comment.objects.filter(post=recipe)
+
+        return render(request, 'recipe/recipe_detail.html', {'recipe': recipe, 'comments': comments,  'user_featured_image_url': user_featured_image_url})
+    return redirect('recipe:recipe_detail', slug=slug, recipe=recipe, commmets=comments)
