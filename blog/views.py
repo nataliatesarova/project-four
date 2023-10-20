@@ -78,3 +78,13 @@ def delete_recipe(request, slug):
     else:
         return redirect('recipe_detail', slug=recipe.slug)
     return render(request, 'recipe/delete_recipe.html', {'recipe': recipe})
+
+    # Likes
+    @login_required
+    def like_recipe(request, slug):
+        recipe = get_object_or_404(Recipe, slug=slug)
+        if request.user in recipe.likes.all():
+            recipe.likes.remove(request.user)
+        else:
+            recipe.likes.add(request.user)
+        return redirect('recipe_detail', slug=slug)
