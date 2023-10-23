@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
-from .forms import RecipeForm, CommentEditForm
+from .forms import RecipeForm, CommentForm
 from .models import Recipe, Comment
 from django.contrib.auth.decorators import login_required
 
@@ -27,7 +27,7 @@ def create_recipe(request):
     else:
         form = RecipeForm()
 
-    return render(request, 'create_recipe.html', {'form': form})
+    return render(request, 'blog/create_recipe.html', {'form': form})
 
 
 # Recipe details
@@ -42,7 +42,7 @@ def recipe_detail(request, slug):
         Comment.objects.create(post=recipe, user=request.user, text=text)
         return redirect('recipe_detail', slug=slug)
 
-    return render(request, 'recipe/recipe_detail.html', {'recipe': recipe, 'comments': comments})
+    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments})
 
 # Edit recipe
 
@@ -77,7 +77,7 @@ def delete_recipe(request, slug):
             return redirect('recipes')
     else:
         return redirect('recipe_detail', slug=recipe.slug)
-    return render(request, 'recipe/delete_recipe.html', {'recipe': recipe})
+    return render(request, 'blog/delete_recipe.html', {'recipe': recipe})
 
 # Likes
 
@@ -106,5 +106,5 @@ def post_comment(request, slug):
 
         comments = Comment.objects.filter(post=recipe)
 
-        return render(request, 'recipe/recipe_detail.html', {'recipe': recipe, 'comments': comments,  'user_featured_image_url': user_featured_image_url})
+        return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments,  'user_featured_image_url': user_featured_image_url})
     return redirect('recipe:recipe_detail', slug=slug, recipe=recipe, commmets=comments)
