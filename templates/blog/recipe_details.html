@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %} {% load cloudinary %}
 
 <!-- Load crispy tags-->
-{% load crispy_forms_tags %}
+<!-- {% load crispy_forms_tags %} -->
 
 <h2>Recipe Details</h2>
 <div class="row">
@@ -29,10 +29,10 @@
         >
 
         <!-- Render the comment form using Crispy Forms -->
-        <form method="post">
+        <!-- <form method="post">
           {% csrf_token %} {{ comment_form|crispy }}
           <button type="submit">Add Comment</button>
-        </form>
+        </form> -->
         {% endif %}
       </div>
     </div>
