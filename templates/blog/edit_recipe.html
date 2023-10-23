@@ -4,6 +4,9 @@
 <h2>Edit recipe</h2>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Update recipe</button>
+  <button class="btn btn-secondary" type="submit">Update recipe</button>
+  <a class="btn btn-secondary" href="{% url 'recipe_detail' recipe.slug %} ">
+    Cancel
+  </a>
 </form>
 {% endblock %}
