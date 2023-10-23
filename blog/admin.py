@@ -10,6 +10,13 @@ class RecipeAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'created_on')
     list_display = ('title', 'slug', 'status', 'created_on')
     search_fields = ['title', 'content']
+    actions = ['publish_post', 'unpublish_post']
+
+    def publish_post(self, request, queryset):
+        queryset.update(status='1')
+
+    def unpublish_post(self, request, queryset):
+        queryset.update(status='0')
 
 
 # Register the Recipe model with the RecipeAdmin configuration
@@ -18,13 +25,19 @@ admin.site.register(Recipe, RecipeAdmin)
 
 class AdminComment(admin.ModelAdmin):
 
-    list_filter = ('approved', 'created_on')
-    list_display = ('name', 'body', 'recipe', 'created_on', 'approved')
-    search_fields = ('name', 'email', 'body')
-    actions = ['approve_comments']
+    list_filter = ('status', 'created_on')
+    list_display = ('user', 'text', 'post', 'created_on', 'status')
+    search_fields = ('name', 'email', 'text')
+    actions = ['approve_comments', 'suspend_comments', 'delete_comments']
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
+    def suspend_comments(self, request, queryset):
+        queryset.update(status='approved')
+
+    def delete_comments(self, request, queryset):
+        queryset.delete()
 
  # Register the Comment model with the AdminComment configuration
 admin.site.register(Comment, AdminComment)
