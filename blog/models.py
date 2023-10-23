@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
-from djang.conf import settings
+from django.conf import settings
 
 
 # Define possible status choices for the Recipe model.
@@ -55,7 +55,7 @@ COMMENT_STATUS_CHOICES = [
 class Comment(models.Model):
 
     post = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name='comments')
+        Recipe, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
@@ -66,7 +66,7 @@ class Comment(models.Model):
     is_edited = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     status = models.CharField(
-        choices=COMMENT_STATUS_CHOICES, default='pending', max_lenghth=20)
+        choices=COMMENT_STATUS_CHOICES, default='pending', max_length=20)
 
     # Comments will be sorted by ascending order (oldest comments first).
     class Meta:
