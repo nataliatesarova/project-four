@@ -28,14 +28,14 @@ def register(request):
             return redirect('recipes')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'registration.html', {'form': form})
+    return render(request, 'user/registration.html', {'form': form})
 
 # User login view
 
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'
-    success_url = 'index.html'
+    success_url = 'blog/index.html'
     success_message = 'You are Logged in! Welcome'
 # Profile details
 
@@ -74,4 +74,3 @@ def update_profile(request, username):
         form = EditProfileForm(instance=user_profile)
 
     return render(request, 'profile/update_profile.html', {'form': form})
-    
