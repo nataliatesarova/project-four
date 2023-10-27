@@ -1,14 +1,30 @@
+from .forms import CommentForm
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from .forms import RecipeForm, CommentForm
 from .models import Recipe, Comment
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, Page, EmptyPage, PageNotAnInteger
 
 
 def RecipeList(request):
     recipe_list = Recipe.objects.filter(status=1).order_by("-created_on")
+    # Recipe Pages
+    # Recipe Pages
+    recipes_per_page = 2
+    paginator = Paginator(recipe_list, recipes_per_page)
+    page_number = request.GET.get('page')
 
-    return render(request, 'blog/index.html', {'recipe_list': recipe_list})
+    try:
+        current_page = paginator.page(page_number)
+    # show the first page if the page number is not an integer
+    except PageNotAnInteger:
+        current_page = paginator.page(1)
+    # Empty page error
+    except EmptyPage:
+        current_page = paginator.page(paginator.num_pages)
+
+    return render(request, 'blog/index.html', {'current_page': current_page})
 
 # Creating a New Recipe
 
