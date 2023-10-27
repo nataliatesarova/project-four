@@ -37,12 +37,16 @@ def recipe_detail(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
     comments = Comment.objects.filter(post=recipe)
 
+    owner = False
+    if request.user == recipe.author:
+        owner = True
+
     if request.method == 'POST':
         text = request.POST.get('comment_text')
         Comment.objects.create(post=recipe, user=request.user, text=text)
         return redirect('recipe_detail', slug=slug)
 
-    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments})
+    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments, 'owner': owner})
 
 # Edit recipe
 
