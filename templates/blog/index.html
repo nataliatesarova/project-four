@@ -1,4 +1,6 @@
 {% extends "base.html" %} {% block content %}
+<!-- jjj -->
+{% load recipe_filters %}
 
 <div class="container">
   <!-- Blog Entries Column -->
@@ -17,7 +19,9 @@
         </a>
         <div class="card-body">
           <h5 class="card-title">{{recipe.title}}</h5>
-          <p class="card-text">{{recipe.content}}</p>
+          <p class="card-text">{{recipe.content|truncate_text:20}}</p>
+          <p>Authored By: {{ recipe.author.username}}</p>
+          <p>Created On: {{ recipe.created_on}}</p>
           <a
             href="{% url 'recipe_detail' recipe.slug %}"
             class="btn btn-primary"
