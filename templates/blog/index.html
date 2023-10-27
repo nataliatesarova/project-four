@@ -7,7 +7,7 @@
   <div class="row">
     <h3>My blog</h3>
     <!-- for loop to display recipe details -->
-    {% for recipe in recipe_list %}
+    {% for recipe in current_page %}
     <div class="col-md-3 mb-4">
       <div class="card">
         <a href="{% url 'recipe_detail' recipe.slug %}">
@@ -35,6 +35,22 @@
     <div class="row"></div>
     {% endif %} {% endfor %}
     <!-- end of recipe details -->
+  </div>
+  <!-- pagination -->
+  <div class="pagination">
+    <span class="step-links">
+      {% if current_page.has_previous %}
+      <a href="?page=1">&laquo; first</a>
+      <a href="?page={{ current_page.previous_page_number }}">previous</a>
+      {% endif %}
+      <span class="current-page">
+        Page {{ current_page.number }} of {{ current_page.paginator.num_pages}}.
+      </span>
+      {% if current_page.has_next %}
+      <a href="?page={{ current_page.next_page_number }}">next</a>
+      <a href="?page={{ current_page.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+    </span>
   </div>
 </div>
 
