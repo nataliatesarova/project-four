@@ -31,10 +31,10 @@ class AdminComment(admin.ModelAdmin):
     actions = ['approve_comments', 'suspend_comments', 'delete_comments']
 
     def approve_comments(self, request, queryset):
-        queryset.update(approved=True)
+        queryset.update(status='approved')
 
     def suspend_comments(self, request, queryset):
-        queryset.update(status='approved')
+        queryset.update(status='pending')
 
     def delete_comments(self, request, queryset):
         queryset.delete()
