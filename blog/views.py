@@ -11,7 +11,7 @@ def RecipeList(request):
     recipe_list = Recipe.objects.filter(status=1).order_by("-created_on")
     # Recipe Pages
     # Recipe Pages
-    recipes_per_page = 2
+    recipes_per_page = 9
     paginator = Paginator(recipe_list, recipes_per_page)
     page_number = request.GET.get('page')
 
