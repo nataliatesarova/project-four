@@ -5,8 +5,9 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetDoneVi
 
 urlpatterns = [
     path('register/', views.register, name='register'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', views.custom_login, name='login'),
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('profile/<str:username>/', views.profile_details, name='profile'),
-    path('profile/<str:username>/', views.update_profile, name='edit_profile'),
+    path('profile/update/<str:username>/',
+         views.update_profile, name='edit_profile'),
 ]
