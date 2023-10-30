@@ -1,82 +1,113 @@
-{% extends "base.html" %} {% load cloudinary %} {% load humanize %}
+{% extends "blog/base.html" %} {% load cloudinary %} {% load humanize %}
 <!-- kjjkkkk -->
 {% block content %}
 <h1>Recipe Details</h1>
-<div class="card">
-  <div class="card-body col-md-4 m-5 border">
-    <h1 class="text-center">{{ recipe.title }}</h1>
-    <p>{{ recipe.content }}</p>
+<div class="container-fluid background-image">
+  <div class="row recipe_details">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body col-md-4 m-5 border">
+          <h1 class="text-center">{{ recipe.title }}</h1>
+          <p>{{ recipe.content }}</p>
 
-    <!-- Display comments -->
-    <h3>Comments</h3>
-    <div id="show-comments" class="show-comments">
-      <a href="#" id="toggle-comments">Show Comments</a>
-    </div>
+          <!-- Display comments -->
+          <h3>Comments</h3>
+          <div id="show-comments" class="show-comments">
+            <a href="#" id="toggle-comments">Show Comments</a>
+          </div>
 
-    <div id="comments-container" class="comments">
-      {% for comment in comments %}
-      <div
-        class="comment{% if comment.status == 'pending' %} pending{% elif comment.status == 'rejected' %} rejected{% endif %}"
-      >
-        <p>
-          <img
-            src="{{ comment.user.profile.profile_picture.url}}"
-            class="comment-avatar"
-            alt="User Avatar"
-          />
-          {{ comment.user.username }}
-          <!-- Humanize for human-readable time -->
-        </p>
+          <div id="comments-container" class="comments">
+            {% for comment in comments %}
+            <div
+              class="comment{% if comment.status == 'pending' %} pending{% elif comment.status == 'rejected' %} rejected{% endif %}"
+            >
+              <p>
+                <img
+                  src="{{ comment.user.profile.profile_picture.url}}"
+                  class="comment-avatar"
+                  alt="User Avatar"
+                />
+                {{ comment.user.username }}
+                <!-- Humanize for human-readable time -->
+              </p>
 
-        <p>{{ comment.text }}</p>
+              <p>{{ comment.text }}</p>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="user-actions">
+            <!-- Comment form -->
+            <form method="post" action="">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="comment_text">Your Comment</label>
+                <textarea
+                  class="form-control"
+                  name="comment_text"
+                  id="comment_text"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Comment</button>
+            </form>
+
+            <!-- Like button -->
+            <p>{{ recipe.total_likes }} Likes</p>
+            <div class="actions">
+              <form method="post" action="{% url 'like_recipe' recipe.slug %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Like</button>
+              </form>
+            </div>
+
+            {% if owner %}
+            <div>
+              <a
+                href="{% url 'edit_recipe' recipe.slug %}"
+                class="btn btn-primary"
+                >Edit</a
+              >
+              <a
+                href="{% url 'delete_recipe' recipe.slug %}"
+                class="btn btn-primary"
+                >Delete</a
+              >
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Toggle Comments Script -->
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+            // jQuery script to toggle the display of comments
+            $(document).ready(function () {
+              $("#toggle-comments").click(function () {
+                $("#comments-container").toggle();
+              });
+            });
+          </script>
+        </div>
       </div>
-      {% endfor %}
-    </div>
+      <!-- Right Cards Container -->
+      <div class="col-md-8">
+        <div class="scrollable-container">
+          <!-- Card 2 -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Content</h5>
+              <p class="card-text">{{recipe.content}}</p>
+            </div>
+          </div>
 
-    <!-- Comment form -->
-    <form method="post" action="">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="comment_text">Your Comment</label>
-        <textarea
-          class="form-control"
-          name="comment_text"
-          id="comment_text"
-        ></textarea>
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Context</h5>
+              <p class="card-text">{{recipe.content}}</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Comment</button>
-    </form>
-
-    <!-- Like button -->
-    <p>{{ recipe.total_likes }} Likes</p>
-    <div class="actions">
-      <form method="post" action="{% url 'like_recipe' recipe.slug %}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary">Like</button>
-      </form>
     </div>
-
-    {% if owner %}
-    <div>
-      <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-primary"
-        >Edit</a
-      >
-      <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-primary"
-        >Delete</a
-      >
-    </div>
-    {% endif %}
   </div>
-
-  <!-- Toggle Comments Script -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    // jQuery script to toggle the display of comments
-    $(document).ready(function () {
-      $("#toggle-comments").click(function () {
-        $("#comments-container").toggle();
-      });
-    });
-  </script>
+  {% endblock %}
 </div>
-{% endblock %}
