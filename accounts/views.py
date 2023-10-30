@@ -7,8 +7,9 @@ from django.views.generic import CreateView
 from .models import Profile, CustomUser
 from .forms import EditProfileForm
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm
-from django.contrib.auth import login
+from .forms import CustomUserCreationForm, AuthenticationForm
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
 
 # Create your views here.
 
@@ -28,15 +29,26 @@ def register(request):
             return redirect('recipes')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'user/registration.html', {'form': form})
+    return render(request, 'accounts/registration/registration.html', {'form': form})
 
 # User login view
 
 
-class CustomLoginView(LoginView):
-    template_name = 'login.html'
-    success_url = 'blog/index.html'
-    success_message = 'You are Logged in! Welcome'
+def custom_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=email, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('recipes')
+    else:
+        form = AuthenticationForm()
+
+    return render(request, 'accounts/registration/login.html', {'form': form})
+
 # Profile details
 
 
@@ -44,14 +56,14 @@ class CustomLoginView(LoginView):
 def profile_details(request, username):
     user = get_object_or_404(CustomUser, username=username)
     user_profile = get_object_or_404(Profile, user=user)
-    return render(request, 'profile/profile.html', {'user_profile': user_profile})
+    return render(request, 'accounts/profile/profile.html', {'user_profile': user_profile})
 
-# Updating user profile
+# update profile
 
 
 @login_required
 def update_profile(request, username):
-    user = request.user
+    user = request.user  # Get the current user
     user_profile = Profile.objects.get(user=user)
 
     if request.method == 'POST':
@@ -59,18 +71,22 @@ def update_profile(request, username):
             request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             form.save()
-            # Update the custom user's first name and last name
+
+            # Update the user's first_name and last_name
             if request.POST.get('first_name') is not None:
                 user.first_name = request.POST.get('first_name')
 
             if request.POST.get('last_name') is not None:
-                user.first_name = request.POST.get('last_name')
+                user.last_name = request.POST.get('last_name')
 
             user.save()
+            messages.success(
+                request, "Profile information Updated Successfully.")
+
             # Redirect to the user's profile page
             return redirect('profile', username=username)
 
     else:
         form = EditProfileForm(instance=user_profile)
 
-    return render(request, 'profile/update_profile.html', {'form': form})
+    return render(request, 'accounts/profile/update_profile.html', {'form': form})
