@@ -5,6 +5,7 @@ from .forms import RecipeForm, CommentForm
 from .models import Recipe, Comment
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, Page, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 
 
 def RecipeList(request):
@@ -51,7 +52,7 @@ def create_recipe(request):
 
 def recipe_detail(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
-    comments = Comment.objects.filter(post=recipe)
+    comments = Comment.objects.filter(post=recipe, status="approved")
 
     owner = False
     if request.user == recipe.author:
