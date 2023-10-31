@@ -1,8 +1,8 @@
-<!-- recipe/recipe_detail.html -->
-<title>Recipe Details</title>
-
 {% extends "blog/base.html" %} {% load static %} {% load cloudinary %} {% load
-humanize %} {% block content %}
+humanize %}
+<!-- block content -->
+{% block content %}
+<h1>Recipe Details</h1>
 <div class="container-fluid background-image">
   <div class="row recipe_details">
     <div class="col-md-4">
@@ -10,7 +10,6 @@ humanize %} {% block content %}
         <div class="card-body m-5 border">
           <h1 class="text-center">{{ recipe.title }}</h1>
           <p>Authered By: {{ recipe.author.username }}</p>
-
           <img
             src="{{ recipe.featured_image.url }}"
             class="card-img-top"
@@ -39,15 +38,9 @@ humanize %} {% block content %}
               </p>
 
               <p>{{ comment.text }}</p>
-              {% comment %}
-              <h5 style="font-size: medium">About:</h5>
-              {% endcomment %} {% comment %}
-              <h6 style="font-size: small">{{ comment.created_on }}</h6>
-              {% endcomment %}
             </div>
             {% endfor %}
           </div>
-
           <div class="user-actions">
             <!-- Comment form -->
             <form method="post" action="">
@@ -60,70 +53,68 @@ humanize %} {% block content %}
                   id="comment_text"
                 ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary mt-3">
-                Comment
-              </button>
+              <button type="submit" class="btn btn-primary">Comment</button>
             </form>
 
             <!-- Like button -->
-            <div>{{ recipe.total_likes }} Likes</div>
+            <p>{{ recipe.total_likes }} Likes</p>
             <div class="actions">
               <form method="post" action="{% url 'like_recipe' recipe.slug %}">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-primary">Like</button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-heart"></i>
               </form>
             </div>
-          </div>
-          {% if owner %}
-          <div>
-            <a
-              href="{% url 'edit_recipe' recipe.slug %}"
-              class="btn btn-primary"
-              >Edit</a
-            >
-            <a
-              href="{% url 'delete_recipe' recipe.slug %}"
-              class="btn btn-primary"
-              >Delete</a
-            >
-          </div>
-          {% endif %}
-        </div>
 
-        {% comment %} Toggle Comments Script {% endcomment %}
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-          // jQuery script to toggle the display of comments
-          $(document).ready(function () {
-            $("#toggle-comments").click(function () {
-              $("#comments-container").toggle();
+            {% if owner %}
+            <div>
+              <a
+                href="{% url 'edit_recipe' recipe.slug %}"
+                class="btn btn-primary"
+                >Edit</a
+              >
+              <a
+                href="{% url 'delete_recipe' recipe.slug %}"
+                class="btn btn-primary"
+                >Delete</a
+              >
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Toggle Comments Script -->
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+            // jQuery script to toggle the display of comments
+            $(document).ready(function () {
+              $("#toggle-comments").click(function () {
+                $("#comments-container").toggle();
+              });
             });
-          });
-        </script>
-      </div>
-    </div>
-
-    <!-- Right Cards Container -->
-    <div class="col-md-8">
-      <div class="scrollable-container">
-        <!-- Card 2 -->
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Content</h5>
-            <p class="card-text">{{recipe.content}}</p>
-          </div>
+          </script>
         </div>
+      </div>
+      <!-- Right Cards Container -->
+      <div class="col-md-8">
+        <div class="scrollable-container">
+          <!-- Card 2 -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Content</h5>
+              <p class="card-text">{{recipe.content}}</p>
+            </div>
+          </div>
 
-        <!-- Card 3 -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Context</h5>
-            <p class="card-text">{{recipe.content}}</p>
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Context</h5>
+              <p class="card-text">{{recipe.context}}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- row -->
+  {% endblock %}
 </div>
-{% endblock %}
