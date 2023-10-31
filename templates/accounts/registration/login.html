@@ -4,13 +4,13 @@
 <h2>Login</h2>
 <form method="post" action="{% url "login" %}">
     {% csrf_token %}
-    <!-- njnj -->
+    <!-- Displays the label for the username input field -->
     {{ form.username.label_tag }}
-    <!-- jj -->
+    <!-- Renders the username input field-->
     {{ form.username }}
-    <!-- jjj -->
+    <!-- Displays the label for the password input field-->
     {{form.password.label_tag }}
-    <!-- jj -->
+    <!-- Renders the password input field -->
     {{ form.password }}
     <button type="submit">Login</button>
 </form>
