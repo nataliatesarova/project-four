@@ -1,14 +1,29 @@
-{% extends "blog/base.html" %} {% load cloudinary %} {% load humanize %}
-<!-- kjjkkkk -->
+<!-- recipe/recipe_detail.html -->
+<title>Recipe Details</title>
+
+{% extends "blog/base.html" %}
+<!-- njnm -->
+{% load static %}
+<!-- njnm -->
+{% load cloudinary %}
+<!-- nknkk -->
+{% load humanize %}
+<!-- nnmmm -->
+
 {% block content %}
-<h1>Recipe Details</h1>
 <div class="container-fluid background-image">
   <div class="row recipe_details">
     <div class="col-md-4">
       <div class="card">
-        <div class="card-body col-md-4 m-5 border">
+        <div class="card-body m-5 border">
           <h1 class="text-center">{{ recipe.title }}</h1>
-          <p>{{ recipe.content }}</p>
+          <p>Authered By: {{ recipe.author.username }}</p>
+
+          <img
+            src="{{ recipe.featured_image.url }}"
+            class="card-img-top"
+            alt="{{ recipe.title }}"
+          />
 
           <!-- Display comments -->
           <h3>Comments</h3>
@@ -23,18 +38,24 @@
             >
               <p>
                 <img
+                  style="height: 2rem; border-radius: 0.8rem"
                   src="{{ comment.user.profile.profile_picture.url}}"
                   class="comment-avatar"
                   alt="User Avatar"
                 />
                 {{ comment.user.username }}
-                <!-- Humanize for human-readable time -->
               </p>
 
               <p>{{ comment.text }}</p>
+              {% comment %}
+              <h5 style="font-size: medium">About:</h5>
+              {% endcomment %} {% comment %}
+              <h6 style="font-size: small">{{ comment.created_on }}</h6>
+              {% endcomment %}
             </div>
             {% endfor %}
           </div>
+
           <div class="user-actions">
             <!-- Comment form -->
             <form method="post" action="">
@@ -47,67 +68,70 @@
                   id="comment_text"
                 ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Comment</button>
+              <button type="submit" class="btn btn-primary mt-3">
+                Comment
+              </button>
             </form>
 
             <!-- Like button -->
-            <p>{{ recipe.total_likes }} Likes</p>
+            <div>{{ recipe.total_likes }} Likes</div>
             <div class="actions">
               <form method="post" action="{% url 'like_recipe' recipe.slug %}">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-primary">Like</button>
               </form>
             </div>
-
-            {% if owner %}
-            <div>
-              <a
-                href="{% url 'edit_recipe' recipe.slug %}"
-                class="btn btn-primary"
-                >Edit</a
-              >
-              <a
-                href="{% url 'delete_recipe' recipe.slug %}"
-                class="btn btn-primary"
-                >Delete</a
-              >
-            </div>
-            {% endif %}
           </div>
-
-          <!-- Toggle Comments Script -->
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script>
-            // jQuery script to toggle the display of comments
-            $(document).ready(function () {
-              $("#toggle-comments").click(function () {
-                $("#comments-container").toggle();
-              });
-            });
-          </script>
+          {% if owner %}
+          <div>
+            <a
+              href="{% url 'edit_recipe' recipe.slug %}"
+              class="btn btn-primary"
+              >Edit</a
+            >
+            <a
+              href="{% url 'delete_recipe' recipe.slug %}"
+              class="btn btn-primary"
+              >Delete</a
+            >
+          </div>
+          {% endif %}
         </div>
-      </div>
-      <!-- Right Cards Container -->
-      <div class="col-md-8">
-        <div class="scrollable-container">
-          <!-- Card 2 -->
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Content</h5>
-              <p class="card-text">{{recipe.content}}</p>
-            </div>
-          </div>
 
-          <!-- Card 3 -->
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Context</h5>
-              <p class="card-text">{{recipe.content}}</p>
-            </div>
+        {% comment %} Toggle Comments Script {% endcomment %}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+          // jQuery script to toggle the display of comments
+          $(document).ready(function () {
+            $("#toggle-comments").click(function () {
+              $("#comments-container").toggle();
+            });
+          });
+        </script>
+      </div>
+    </div>
+
+    <!-- Right Cards Container -->
+    <div class="col-md-8">
+      <div class="scrollable-container">
+        <!-- Card 2 -->
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Content</h5>
+            <p class="card-text">{{recipe.content}}</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Context</h5>
+            <p class="card-text">{{recipe.content}}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  {% endblock %}
+  <!-- row -->
 </div>
+{% endblock %}
