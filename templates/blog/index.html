@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %} {% block content %}
+{% extends "blog/base.html" %} {% block ingredients %}
 <!-- jjj -->
 {% load recipe_filters %}
 
@@ -19,7 +19,9 @@
         </a>
         <div class="card-body">
           <h5 class="card-title">{{recipe.title}}</h5>
-          <p class="card-text">{{ recipe.content|truncate_text:20|safe }}</p>
+          <p class="card-text">
+            {{ recipe.ingredients|truncate_text:20|safe }}
+          </p>
           <p>Authored By: {{ recipe.author.username}}</p>
           <p>Created On: {{ recipe.created_on}}</p>
           <a
