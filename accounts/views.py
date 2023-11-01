@@ -71,14 +71,6 @@ def update_profile(request, username):
             request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             form.save()
-
-            # Update the user's first_name and last_name
-            if request.POST.get('first_name') is not None:
-                user.first_name = request.POST.get('first_name')
-
-            if request.POST.get('last_name') is not None:
-                user.last_name = request.POST.get('last_name')
-
             user.save()
             messages.success(
                 request, "Profile information Updated Successfully.")
@@ -88,5 +80,6 @@ def update_profile(request, username):
 
     else:
         form = EditProfileForm(instance=user_profile)
-
+    form.fields['first_name'].initial = user.first_name
+    form.fields['last_name'].initial = user.last_name
     return render(request, 'accounts/profile/update_profile.html', {'form': form})
