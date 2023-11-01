@@ -15,9 +15,10 @@ class Recipe(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="recipe_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    description = models.TextField(blank=True)
+    ingredients = models.TextField(blank=True)
     featured_image = CloudinaryField('feature_image', default='placeholder')
-    excerpt = models.TextField(blank=True)
+    method = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     comments = models.ManyToManyField(
