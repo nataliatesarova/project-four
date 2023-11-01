@@ -1,23 +1,43 @@
 {% extends "blog/base.html" %} {% block content %}
 
-<div class="prof m-auto">
-  <div class="col-md-3">
-    <img src="{{user_profile.profile_picture.url}} " alt="Profl" />
-    <div class="uname">
-      <p>
-        Name: {{user_profile.user.first_name}} {{ user_profile.user.last_name}}
-      </p>
-    </div>
-    <div class="uname">
-      <p>Username: {{user_profile.user.username}}</p>
-    </div>
-    <div class="bio">
-      <p>User Bio: {{user_profile.bio}}</p>
+<div class="prof prof-container container">
+  <p class="p1 m-5">
+    <strong><em>USER DETAILS</em></strong>
+  </p>
+
+  <div class="col-md-3 profile-info">
+    <img
+      class="profile-image me-3 rounded"
+      src="{{user_profile.profile_picture.url}} "
+      alt="Profl"
+    />
+
+    <div class="ms-5 details">
+      <div class="name">
+        <p>
+          <strong>Name: </strong> {{ user_profile.user.first_name}}
+          {{user_profile.user.last_name}}
+        </p>
+      </div>
+      <div class="uname">
+        <p><strong>Username:</strong> {{user_profile.user.username}}</p>
+      </div>
+      <div class="bio">
+        <p><strong>User Bio:</strong> {{user_profile.bio}}</p>
+      </div>
     </div>
   </div>
-</div>
+  <div class="edit-profile btn btn-info m-5">
+    <a href="{% url 'edit_profile' user.username %} "> Edit Profile</a>
+  </div>
 
-<div class="btn">
-  <a href="{% url 'edit_profile' user.username %} "> Edit Profile</a>
+  <p class="p1 m-5 text-start"><strong>User History</strong></p>
+
+  <div class="member">
+    <p>You have been our Member since {{user_profile.created_on}}</p>
+  </div>
+  <div class="update">
+    <p>You last updated your Profile details on {{user_profile.updated_on}}</p>
+  </div>
 </div>
 {% endblock content %}

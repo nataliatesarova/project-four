@@ -5,19 +5,7 @@
   </div>
   <div class="card-body">
     <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-
-      <!-- Display First Name Field -->
-      <div class="form-group">
-        <p>First Name: {{ user.first_name }}</p>
-      </div>
-
-      <!-- Display Last Name Field -->
-      <div class="form-group">
-        <p>Last Name: {{ user.last_name }}</p>
-      </div>
-
-      {{ form.as_p }}
+      {% csrf_token %} {{ form.as_p }}
 
       <button type="submit" class="btn btn-primary m-3">Save Changes</button>
       <span class="btn btn-primary m-3"> Cancel</span>
