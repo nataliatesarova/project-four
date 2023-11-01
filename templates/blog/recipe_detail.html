@@ -24,97 +24,84 @@ humanize %}
 
           <div id="comments-container" class="comments">
             {% for comment in comments %}
-            <div
-              class="comment{% if comment.status == 'pending' %} pending{% elif comment.status == 'rejected' %} rejected{% endif %}"
-            >
-              <p>
-                <img
-                  style="height: 2rem; border-radius: 0.8rem"
-                  src="{{ comment.user.profile.profile_picture.url}}"
-                  class="comment-avatar"
-                  alt="User Avatar"
-                />
-                {{ comment.user.username }}
-              </p>
+                <div class="comment{% if comment.status == 'pending' %} pending{% elif comment.status == 'rejected' %} rejected{% endif %}">
+            
+                    <p>
+                        <img style="height: 2rem; border-radius: 0.8rem" src="{{ comment.user.profile.profile_picture.url}}"
+                        class="comment-avatar"
+                        alt="User Avatar"/> {{ comment.user.username }}
+                    </p>
 
-              <p>{{ comment.text }}</p>
-            </div>
+                    <p>{{ comment.text }}</p>
+                </div>
             {% endfor %}
           </div>
           <div class="user-actions">
             <!-- Comment form -->
             <form method="post" action="">
-              {% csrf_token %}
-              <div class="form-group">
-                <label for="comment_text">Your Comment</label>
-                <textarea
-                  class="form-control"
-                  name="comment_text"
-                  id="comment_text"
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Comment</button>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="comment_text">Your Comment</label>
+                    <textarea
+                    class="form-control"
+                    name="comment_text"
+                    id="comment_text"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Comment</button>
             </form>
 
             <!-- Like button -->
-            <p>{{ recipe.total_likes }} Likes</p>
+            <div>{{ recipe.total_likes }} Likes</div>
             <div class="actions">
               <form method="post" action="{% url 'like_recipe' recipe.slug %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-primary">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">
                     <i class="fa-solid fa-heart"></i>
               </form>
             </div>
 
-            {% if owner %}
-            <div>
-              <a
-                href="{% url 'edit_recipe' recipe.slug %}"
-                class="btn btn-primary"
-                >Edit</a
-              >
-              <a
-                href="{% url 'delete_recipe' recipe.slug %}"
-                class="btn btn-primary"
-                >Delete</a
-              >
-            </div>
-            {% endif %}
-          </div>
+        {% if owner %}
+        <div>
+            <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-primary">Delete</a>
+        </div>
+        {% endif %}
+    </div>
 
-          <!-- Toggle Comments Script -->
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script>
+    <!-- Toggle Comments Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
             // jQuery script to toggle the display of comments
             $(document).ready(function () {
-              $("#toggle-comments").click(function () {
+            $("#toggle-comments").click(function () {
                 $("#comments-container").toggle();
               });
             });
-          </script>
-        </div>
-      </div>
-      <!-- Right Cards Container -->
-      <div class="col-md-8">
-        <div class="scrollable-container">
-          <!-- Card 2 -->
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Content</h5>
-              <p class="card-text">{{recipe.content|safe}}</p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Context</h5>
-              <p class="card-text">{{recipe.context}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endblock %}
+    </script>
 </div>
+</div>
+    <!-- Right Cards Container -->
+    <div class="col-md-8">
+        <div class="scrollable-container">
+            <!-- Card 2 - Content -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Description</h5>
+                    <p class="card-text">{{recipe.description|safe}}</p>
+                </div>
+            </div>
+    
+            <!-- Card 3 - Context -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ingredients</h5>
+                    <p class="card-text">{{recipe.ingredients}</p>
+                    <h5 class="card-title">Method</h5>
+                    <p class="card-text">{{recipe.method}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
