@@ -29,9 +29,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ['localhost', '8001-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
+ALLOWED_HOSTS = ['localhost',
+                '*',
+                 '8014-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
                  '8000-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
-                 '8005-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
                  'recipeblog-e0d016298fa8.herokuapp.com']
 
 
