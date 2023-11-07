@@ -23,6 +23,7 @@ def register(request):
             user = form.save()
             # Log the user automatically
             login(request, user)
+            messages.success(request, 'Registration successful. You are now logged in.')
             # Create user profile
             Profile.objects.create(user=user)
             # Redirect to the homepage
@@ -43,7 +44,9 @@ def custom_login(request):
             user = authenticate(request, username=email, password=password)
             if user is not None:
                 login(request, user)
+                messages.success(request, 'Welcome, you are now logged in.')
                 return redirect('recipes')
+                messages.success(request, 'Welcome, you are logged in.')
     else:
         form = AuthenticationForm()
 
@@ -72,8 +75,7 @@ def update_profile(request, username):
         if form.is_valid():
             form.save()
             user.save()
-            messages.success(
-                request, "Profile information Updated Successfully.")
+            messages.success(request, "Profile information Updated Successfully.")
 
             # Redirect to the user's profile page
             return redirect('profile', username=username)
