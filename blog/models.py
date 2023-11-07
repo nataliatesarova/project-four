@@ -12,19 +12,16 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Recipe(models.Model):
     title = models.CharField("Title", max_length=200, unique=True)
     slug = models.SlugField("Slug", max_length=200, unique=True)
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="recipe_posts")
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="recipe_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    description = models.TextField(blank=True)
-    ingredients = models.TextField(blank=True)
+    ingredients = models.TextField(default="Default Ingredients")
+    content = models.TextField(default="Default Content")
     featured_image = CloudinaryField('feature_image', default='placeholder')
-    method = models.TextField(blank=True)
+    excerpt = models.TextField(default="Default Excerpt")
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    comments = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, through='Comment', related_name='recipe_comments')
-    likes = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, related_name='blog_likes', blank=True)
+    comments = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Comment', related_name='recipe_comments')
+    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='blog_likes', blank=True)
 
     # Define the default ordering for recipes by creation date.
     class Meta:
@@ -57,8 +54,7 @@ class Comment(models.Model):
 
     post = models.ForeignKey(
         Recipe, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     text = models.TextField()
     # DateTimeField named 'created_on' that automatically sets the current date and time when a new comment is created.
@@ -74,7 +70,7 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment {self.text} by {self.user}"
 
     # Total comments
     def total_comments(self):

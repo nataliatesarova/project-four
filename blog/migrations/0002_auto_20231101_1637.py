@@ -15,9 +15,10 @@ class Migration(migrations.Migration):
             old_name='excerpt',
             new_name='description',
         ),
-        migrations.RemoveField(
+        migrations.RenameField(
             model_name='recipe',
-            name='content',
+            old_name='content',
+            new_name='description',
         ),
         migrations.AddField(
             model_name='recipe',
