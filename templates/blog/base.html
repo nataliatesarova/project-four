@@ -10,23 +10,26 @@
     <meta name="description" content="Explore and share the finest recipes." />
     <meta name="keywords" content="Recipe, Food, Cookbook, App, Cooking" />
     <!-- Include Bootstrap CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-   
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+      <link rel="stylesheet" type="text/css" href="{% static 'blog/css/base.css' %}"/>
+
+    {% block extracss %}
+    
+    {% endblock extracss %}
     <!-- Title -->
     <title>Recipe blog</title>
   </head>
   <body>
+    <div class="wrapper">
+      <header>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -50,10 +53,10 @@
               <a class="nav-link active" aria-current="page" href="{% url 'create_recipe' %}">Add new recipe</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
             </li>
             <li class="profile nav-item">
-                <a href="{% url 'profile' user.username %}" style="text-decoration: none;">MyProfile</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'profile' user.username %}" style="text-decoration: none;">MyProfile</a>
             </li>
             {% else %}
             <li class="nav-item">
@@ -67,12 +70,32 @@
         </div>
       </div>
     </nav>
+  </header>
+
 
     <!-- Block Content -->
-    {% block content %}
+    <main>
+      <!-- Load Messages -->
+      {% if messages %}
+      {% for message in messages %}
+      <div {% if message.tags %}  class="icon alert alert-{{message.tags}} alert-dismissible fade show" role="alert" id="msgAlert" data-autohide="true" onclick="hideDiv()" {% endif %}>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          <strong> {{message}} </strong>
+      </div>
+      <div class="icon" onclick="hideDiv()">&#x2716; {{message}} </div>
+      {% endfor %}
+  
+  {% endif %} 
+
+    <div class="main-container">
+      {% block content %}
     
-    {% endblock content %}
+      {% endblock content %}
+    </div>
     
+  </main>
 
     <footer class="bg-dark text-white text-center py-2">
       <div class="container">
@@ -97,5 +120,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+  </div>
+
+  <script src="{% static 'blog/js/alert.js' %}"></script>
   </body>
 </html>
