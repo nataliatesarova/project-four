@@ -37,11 +37,14 @@ def create_recipe(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
+            messages.success(request, 'Recipe created successfully.')
+        
 
             # Redirect to the recipe detail page
-            return redirect('recipes',)
+            return redirect('recipes')
     else:
         form = RecipeForm()
+        messages.error(request, 'Recipe creation failed.')
 
     return render(request, 'blog/create_recipe.html', {'form': form})
 
@@ -75,6 +78,7 @@ def EditRecipe(request, slug):
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Recipe updated successfully.')
             # Redirect to the recipe detail page
             return redirect('recipe_detail', slug=recipe.slug)
     else:
@@ -93,8 +97,10 @@ def delete_recipe(request, slug):
         if request.method == 'POST':
             # Delete the recipe
             recipe.delete()
+            messages.success(request, f'Recipe "{recipe.title}" was deleted successfully.')
             # Redirect to home page
             return redirect('recipes')
+        
     else:
         return redirect('recipe_detail', slug=recipe.slug)
     return render(request, 'blog/delete_recipe.html', {'recipe': recipe})
@@ -121,10 +127,12 @@ def post_comment(request, slug):
     if request.method == 'POST':
         text = request.POST.get('comment_text')
         # Comments are pending by default
-        Comment.objects.create(
-            post=recipe, user=request.user, text=text, status='pending')
+        Comment.objects.create(post=recipe, user=request.user, text=text, status='pending')
+        messages.success(request, 'Comment was submitted successfully. It will display on approval by admin.')
 
-        comments = Comment.objects.filter(post=recipe)
+        comments = Comment.objects.filter(post=recipe, status='approved')
+        if Comment.user == request.user:
+            pending_comments = Comment.objects.filter(post=recipe, status='pending')
 
         return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments,  'user_featured_image_url': user_featured_image_url})
-    return redirect('recipe:recipe_detail', slug=slug, recipe=recipe, commmets=comments)
+    return redirect('recipe:recipe_detail', slug=slug, recipe=recipe, commmets=comments, pending_comments=pending_comments)
