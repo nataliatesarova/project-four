@@ -1,0 +1,83 @@
+
+
+/* Profile Update Page */
+
+/* Card container */
+.prof-update {
+    font-size: x-large;
+    max-width: 30%;
+    padding: .4rem;
+    margin: 2rem auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form header */
+.card-header {
+    background-color: #d0d1d3;
+    color: black;
+    text-align: start;
+    padding: 15px;
+    
+}
+
+.card-body {
+    background-color: #c5c2c2;
+    opacity: 0.9;
+    padding: 2rem;
+    border-radius: .2rem;
+    color: black;
+}
+
+/* Form elements */
+.card form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+form label {
+    min-width: 12rem;
+    margin: .2rem;
+    font-weight: 600;
+
+}
+.card-body input{
+    display: block;
+    width: 22rem;
+    min-height: 2.5rem;
+    border-radius: .4rem;
+    padding: 0 1rem;
+}
+.helptext{
+    display: none;
+}
+/* Save Changes Button */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    margin-top: 1.25rem;
+    cursor: pointer;
+}
+
+
+ul{
+    display: none;
+}
+
+.card h2{
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    text-align: center;
+
+}
+textarea{
+    display: block;
+    height: 5rem;
+    width: 22rem;
+    border-radius: .4rem;
+    padding: .4rem 1rem;
+    
+}
