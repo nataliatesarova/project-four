@@ -1,15 +1,27 @@
-{% extends "blog/base.html" %} {% block content %}
-<div class="card mx-auto">
-  <div class="card-header">
-    <h2>Edit Your Profile</h2>
-  </div>
-  <div class="card-body">
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %} {{ form.as_p }}
+{% extends "blog/base.html" %} {% load static %}
 
-      <button type="submit" class="btn btn-primary m-3">Save Changes</button>
-      <span class="btn btn-primary m-3"> Cancel</span>
-    </form>
+{% block extracss %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile-update.css' %}">
+{% endblock extracss %}
+
+{% block content %} 
+
+
+  <div class="col-md-6 prof-update mx-auto">
+
+    <div class="card card-header">
+      <h2>Edit Your Profile</h2>
+    </div>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary m-3">Save Changes</button>
+        <span class="btn btn-primary m-3"> Cancel</span>
+      </form>
+    </div>
+
   </div>
-</div>
+  
 {% endblock %}

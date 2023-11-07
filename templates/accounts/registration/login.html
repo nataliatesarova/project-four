@@ -1,17 +1,22 @@
 {% extends 'accounts/base.html' %}
 <!-- User Login form -->
 {% block content %}
-<h2>Login</h2>
-<form method="post" action="{% url "login" %}">
-    {% csrf_token %}
-    <!-- Displays the label for the username input field -->
-    {{ form.username.label_tag }}
-    <!-- Renders the username input field-->
-    {{ form.username }}
-    <!-- Displays the label for the password input field-->
-    {{form.password.label_tag }}
-    <!-- Renders the password input field -->
-    {{ form.password }}
-    <button type="submit">Login</button>
-</form>
+<div class="card login-card">
+    <div class="card-body">
+        <form method="post" action="{% url "login" %}">
+            {% csrf_token %}
+            <!-- Displays the label for the username input field -->
+            {{ form.username.label_tag }}
+            <!-- Renders the username input field-->
+            {{ form.username }}
+            <!-- Displays the label for the password input field-->
+            {{form.password.label_tag }}
+            <!-- Renders the password input field -->
+            {{ form.password }}
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
+
+

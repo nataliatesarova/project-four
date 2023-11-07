@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 <!-- Defining the content block for this page  -->
 
-{% block ontent %}
+{% block content %}
 <div class="card">
   <div class="card-header">
     <h2>Delete Recipe</h2>
@@ -10,28 +10,22 @@
     <p>Are you sure you want to delete this recipe?</p>
     <h3>{{ recipe.title }}</h3>
 
-    <!-- Confirmation dialog JavaScript-->
-    <script>
-      function confirmDelete() {
-        if (window.confirm("Are you sure you want to delete this recipe?")) {
-          // If user confirms, submit the form
-          document.getElementById("delete-form").submit();
-        }
-      }
-    </script>
     <!-- Delete form -->
     <form method="post" id="delete-form">
       {% csrf_token %}
-      <button type="button" class="btn btn-secondary" onclick="confirmDelete()">
-        Delete
-      </button>
-      <a
-        class="btn btn-secondary"
-        href="{% url 'recipe_detail' recipe.slug %} "
-      >
-        Cancel
-      </a>
+      <button type='submit' class="btn btn-danger"> Delete</button>
+        <a class="btn btn-secondary" href="{% url 'recipe_detail' recipe.slug %} " > Cancel </a>
     </form>
   </div>
 </div>
+
+<!-- Confirmation dialog JavaScript-->
+{% comment %} <script>
+  function confirmDelete() {
+    if (window.confirm("Are you sure you want to delete this recipe?")) {
+      // If user confirms, submit the form
+      document.getElementById("delete-form").submit();
+    }
+  }
+</script> {% endcomment %}
 {% endblock %}

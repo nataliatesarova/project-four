@@ -1,9 +1,23 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base.html' %} {% load static %} 
+
+{% block extracss %}
+
+<link rel="stylesheet" href="{% static 'blog/css/new_recipe.css' %}" />
+
+{% endblock extracss %}
+
 <!-- Recipe creation form-->
 {% block content %}
-<h2>Create a New Recipe</h2>
-<form method="post" enctype="multipart/form-data" class="recipe-form">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Create Recipe</button>
-</form>
+<!-- Load Messages -->
+{% include "includes/alerts.html" %}
+<div class="card create-recipe-card">
+  <div class="card-body create-card">
+    <h2 class="card-title">Create a New Recipe</h2>
+    <form method="post" enctype="multipart/form-data" class="create-recipe-form">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Create Recipe</button>
+    </form>
+  </div>
+</div>
+
 {% endblock %}

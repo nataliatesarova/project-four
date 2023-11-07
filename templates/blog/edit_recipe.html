@@ -1,12 +1,31 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+{% block extracss %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/edit-recipe.css' %}"/>
+
+{% endblock extracss %}
 <!-- Edit recipe -->
 {% block content %}
-<h2>Edit recipe</h2>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %} {{ form.as_p }}
-  <button class="btn btn-secondary" type="submit">Update recipe</button>
-  <a class="btn btn-secondary" href="{% url 'recipe_detail' recipe.slug %} ">
-    Cancel
-  </a>
-</form>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h2>Edit Recipe</h2>
+        </div>
+        <div class="card-body">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center">
+              <button class="btn btn-secondary" type="submit">Update Recipe</button>
+              <a class="btn btn-secondary" href="{% url 'recipe_detail' recipe.slug %}">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
