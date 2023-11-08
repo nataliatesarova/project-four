@@ -73,5 +73,5 @@ class Comment(models.Model):
         return f"Comment {self.text} by {self.user}"
 
     # Total comments
-    def total_comments(self):
-        return self.comments.count()
+    def total_approved_comments(self):
+        return Comment.objects.filter(post=self.post, status='approved').count()

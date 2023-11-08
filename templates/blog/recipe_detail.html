@@ -20,11 +20,13 @@
                 <div class="image-container">
                     <img src="{{ recipe.featured_image.url }}" class="card-img-top" alt="{{ recipe.title }}" />
                 </div>
-            
                 <!-- Display comments -->
                 <h3>Comments</h3>
+                {% if total_pending_comments %}
+                    <p>You have {{total_pending_comments}} Pending comments awaiting Admin's approval.</p>
+                {% endif %}
                 <div id="show-comments" class="show-comments">
-                    <a href="#" id="toggle-comments">Show Comments --> {{ recipe.total_comments }}</a>
+                    <a href="#" id="toggle-comments">Show    ({{total_approved_comments}}) Comments </a>
                 </div>
 
                 <div id="comments-container" class="comments">

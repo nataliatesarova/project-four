@@ -64,8 +64,19 @@ def recipe_detail(request, slug):
         text = request.POST.get('comment_text')
         Comment.objects.create(post=recipe, user=request.user, text=text)
         return redirect('recipe_detail', slug=slug)
+    # Approved comments for the recipe
+    comments = Comment.objects.filter(post=recipe, status='approved')
+    total_approved_comments = comments.count()
 
-    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments, 'owner': owner})
+    # Pending comments for the current user and recipe
+    pending_comments = Comment.objects.filter(post=recipe, user=request.user, status='pending')
+    total_pending_comments = pending_comments.count()  
+
+    # In your view
+    print("Total Approved Comments:", total_approved_comments)
+    print("Total Pending Comments:", total_pending_comments)
+
+    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments, 'owner': owner, 'total_approved_comments': total_approved_comments, 'total_pending_comments': total_pending_comments})
 
 # Edit recipe
 
@@ -130,9 +141,5 @@ def post_comment(request, slug):
         Comment.objects.create(post=recipe, user=request.user, text=text, status='pending')
         messages.success(request, 'Comment was submitted successfully. It will display on approval by admin.')
 
-        comments = Comment.objects.filter(post=recipe, status='approved')
-        if Comment.user == request.user:
-            pending_comments = Comment.objects.filter(post=recipe, status='pending')
 
-        return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments,  'user_featured_image_url': user_featured_image_url})
-    return redirect('recipe:recipe_detail', slug=slug, recipe=recipe, commmets=comments, pending_comments=pending_comments)
+    return render(request, 'blog/recipe_detail.html', { 'recipe': recipe, 'user_featured_image_url': user_featured_image_url })
