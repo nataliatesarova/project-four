@@ -46,7 +46,6 @@ def custom_login(request):
                 login(request, user)
                 messages.success(request, 'Welcome, you are now logged in.')
                 return redirect('recipes')
-                messages.success(request, 'Welcome, you are logged in.')
     else:
         form = AuthenticationForm()
 
