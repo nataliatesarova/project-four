@@ -13,6 +13,9 @@ html, body {
 main {
     flex: 1;
 }
+.main-container{
+    min-height: 90vh;
+}
  /* message div */
  .message-div {
     padding: 10px;
