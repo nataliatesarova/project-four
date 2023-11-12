@@ -30,7 +30,7 @@
 
 
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/accounts.css' %}"/>
-        <!-- <link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog.css' %}"/> -->
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/alerts.css' %}"/>
 
 
         
@@ -87,32 +87,34 @@
                     {% endfor %}
                     <span><button id="toggleMessagesBtn" {% if not messages %}disabled{% endif %} onclick="toggleMessages()">Close</button></span>
                 </div>
-
+                <div class="main-container">
                 <!-- Block Content -->
                 {% block content %}
                 {% comment %} {% messages %} {% endcomment %}
                 
                 {% endblock %}
             </main>
+            </div>
 
             <footer class="bg-dark text-white text-center py-2">
                 <div class="container">
-                    <div class="row">
+                  <div class="row">
                     <div class="col">
-                        <a class="text-white" href="https://www.facebook.com/">
+                      <a class="text-white" href="https://www.facebook.com/">
                         <i class="fa-brands fa-facebook"></i> Facebook
-                        </a>
+                      </a>
                     </div>
                     <div class="col">
-                        <a class="text-white" href="https://www.instagram.com/">
+                      <a class="text-white" href="https://www.instagram.com/">
                         <i class="fa-brands fa-instagram"></i> Instagram
-                        </a>
+                      </a>
+                    </div>
                     <div class="col">
-                        <a class="text-white" href="https://twitter.com/">
+                      <a class="text-white" href="https://twitter.com/">
                         <i class="fa-brands fa-x-twitter"></i> Twitter
-                        </a>
+                      </a>
                     </div>
-                    </div>
+                  </div>
                 </div>
             </footer>
         </div>
