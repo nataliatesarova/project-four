@@ -37,12 +37,8 @@
         {% block extracss %}
             
         {% endblock extracss %}
-        
-        {% if title %}
-            <title>{{title}}</title>
-        {% else %}
+      
         <title>Recipe Blog</title>
-        {% endif %}
         
     </head>
 
@@ -84,18 +80,14 @@
             <!--  Django Messages -->
             
             <main>
-            <!-- Load Messages -->
-    {% if messages %}
-    {% for message in messages %}
-    <div {% if message.tags %}  class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" id='msgAlert' data-autohide="true" {% endif %}>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <strong> {{message}} </strong>
-    </div>
-    {% endfor %}
+                <!-- Django Messages Togglable Div -->
+                <div class="message-div hidden {% if messages %}hidden{% endif %}" id="django-messages p-2">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                    <span><button id="toggleMessagesBtn" {% if not messages %}disabled{% endif %} onclick="toggleMessages()">Close</button></span>
+                </div>
 
-{% endif %} 
                 <!-- Block Content -->
                 {% block content %}
                 {% comment %} {% messages %} {% endcomment %}
@@ -125,7 +117,7 @@
             </footer>
         </div>
 
-        <script src="{% static 'blog/js/alert.js' %}"></script>
+        <script src="{% static 'blog/js/alerts.js' %}"></script>
 
     </body>
 </html>
