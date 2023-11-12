@@ -111,7 +111,7 @@ DATABASES = {
 
 # Authentications Backends
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend',    
 ]
 
 # Customized user model

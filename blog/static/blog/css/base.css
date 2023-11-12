@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     margin: 0;
-    font-size: larger;
+    font-size: large;
 }
 
 .wrapper {
@@ -12,4 +12,19 @@ html, body {
 
 main {
     flex: 1;
+}
+ /* message div */
+ .message-div {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+}
+
+/* Hide message div by default */
+.hidden {
+    display: none;
+}
+footer{
+    min-width: 400px;
 }
