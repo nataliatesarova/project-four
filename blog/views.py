@@ -42,9 +42,11 @@ def create_recipe(request):
 
             # Redirect to the recipe detail page
             return redirect('recipes')
+        else:
+            messages.error(request, 'Recipe creation failed. Make sure You have filled in all the fields.')
+
     else:
         form = RecipeForm()
-        messages.error(request, 'Recipe creation failed.')
 
     return render(request, 'blog/create_recipe.html', {'form': form})
 
@@ -63,6 +65,7 @@ def recipe_detail(request, slug):
     if request.method == 'POST':
         text = request.POST.get('comment_text')
         Comment.objects.create(post=recipe, user=request.user, text=text)
+        messages.success(request, 'Your comment has been created successfully. It will be visible once the admin approves.')
         return redirect('recipe_detail', slug=slug)
     # Approved comments for the recipe
     comments = Comment.objects.filter(post=recipe, status='approved')
@@ -89,7 +92,7 @@ def EditRecipe(request, slug):
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Recipe updated successfully.')
+            messages.success(request, f'Recipe {recipe.title} was updated successfully.')
             # Redirect to the recipe detail page
             return redirect('recipe_detail', slug=recipe.slug)
     else:
@@ -130,7 +133,7 @@ def like_recipe(request, slug):
 
 # Comments
 
-
+@login_required
 def post_comment(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
     user_featured_image_url = request.user.featured_image.url
