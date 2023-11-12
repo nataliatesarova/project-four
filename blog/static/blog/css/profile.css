@@ -1,22 +1,25 @@
 /* profile information page */
-
 .profile-image {
     max-width: 12rem;
-    height: 12rem; 
+    max-height: 7rem; 
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: #f0f0f0; 
-    border-radius: 40%;
+    margin: 1rem auto;
+    
 
 }
 
 .profile-image img {
-    max-height: 100%;
+    max-height: 98%;
+    max-width: 98%;
     object-fit: cover;
+    text-align: center;
 }
-
+.details-row{
+    display: flex;
+}
 .prof{
     display: flex;
 }
@@ -29,30 +32,35 @@
 
 /* user details */
 .profile-info {
-    width: 60%;
+    max-width: 60%;
+    min-width: 400px;
     margin: 0 auto;
     display: flex;
     border-radius: 1rem;
-    padding: 1rem 0 1rem 1rem;
+    padding: 1rem 1rem 1rem 3rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
+
 /* user details card */
 .details {
-    width: 70%;
+    max-width: 70%;
+    min-width: 400px;
     padding: 2rem .5rem;
 }
 
 /* heading */
 .p1 {
     text-align: center;
-    font-size: xx-large;
+    min-width: 400px;
+    font-size: larger;
     border-bottom: thin black solid;
     border-width: auto;
 }
 .history{
     text-align: center;
-    font-size: xx-large;
+    min-width: 400px;
+    font-size: larger;
     text-decoration: underline;
     text-underline-offset: 0.5rem;
     
@@ -60,7 +68,9 @@
 
 /* user details paragraphs */
 .details p {
-    font-size: x-large;
+    min-width: 400px;
+    max-width: 80%;
+    font-size: larger;
 }
 
 /* edit profile button  */
@@ -72,6 +82,7 @@
     font-size: larger;
 }
 .member p{
+    min-width: 400px;
     background-color: aliceblue;
     padding: 1rem 2rem;
     border-radius: .8rem;
