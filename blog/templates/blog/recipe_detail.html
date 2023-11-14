@@ -89,11 +89,11 @@
                     </div>
                 {% if owner %}
                 <div>
-                    <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-primary mb-2"
-                    >Edit</a
+                    <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-light m-3"
+                    ><i class="fa-sharp fa-solid fa-file-pen"></i></a
                     >
-                    <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-primary mb-2"
-                    >Delete</a
+                    <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-light m-3"
+                    ><i class="fa-sharp fa-solid fa-trash"></i></a
                     >
                 </div>
                 {% endif %}
