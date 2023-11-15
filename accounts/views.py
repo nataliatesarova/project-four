@@ -65,22 +65,26 @@ def profile_details(request, username):
 
 @login_required
 def update_profile(request, username):
-    user = request.user  # Get the current user
+    user = request.user
     user_profile = Profile.objects.get(user=user)
 
     if request.method == 'POST':
-        form = EditProfileForm(
-            request.POST, request.FILES, instance=user_profile)
+        form = EditProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
+            # Accessing form data 
+            bio = form.cleaned_data['bio']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
             form.save()
+            # Update Form Data
+            user.first_name = first_name
+            user.last_name = last_name
             user.save()
             messages.success(request, "Profile information Updated Successfully.")
-
-            # Redirect to the user's profile page
             return redirect('profile', username=username)
-
     else:
         form = EditProfileForm(instance=user_profile)
     form.fields['first_name'].initial = user.first_name
     form.fields['last_name'].initial = user.last_name
-    return render(request, 'accounts/profile/update_profile.html', {'form': form})
+    profile_pic = user_profile.profile_picture.url
+    return render(request, 'accounts/profile/update_profile.html', {'form': form, 'profile_pic': profile_pic})
