@@ -26,3 +26,4 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
 ]
+handler404 = 'blog.views.custom_404'

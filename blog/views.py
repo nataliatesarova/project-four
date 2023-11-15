@@ -131,4 +131,9 @@ def like_recipe(request, slug):
     return redirect('recipe_detail', slug=slug)
 
 
+# Custom 404 Page
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
 # Todo Update and Delete Comments
