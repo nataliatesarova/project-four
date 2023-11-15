@@ -16,23 +16,4 @@ main {
 .main-container{
     min-height: 90vh;
 }
- 
-/* Style the Notifications Message div */
-.message-div {
-    padding: 2rem;
-    margin: 1rem auto;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
-    width: 60%;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 4rem;
-}
-button{
-  border-radius: 1.5rem;
-}
 
-/* Hide the message div by default */
-.hidden {
-    display: none;
-}
