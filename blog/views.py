@@ -57,29 +57,28 @@ def create_recipe(request):
 def recipe_detail(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
     comments = Comment.objects.filter(post=recipe, status="approved")
-
-    owner = False
-    if request.user == recipe.author:
-        owner = True
-
-    if request.method == 'POST':
-        text = request.POST.get('comment_text')
-        Comment.objects.create(post=recipe, user=request.user, text=text)
-        messages.success(request, 'Your comment has been created successfully. It will be visible once the admin approves.')
-        return redirect('recipe_detail', slug=slug)
     # Approved comments for the recipe
-    comments = Comment.objects.filter(post=recipe, status='approved')
     total_approved_comments = comments.count()
+    total_pending_comments = 0
+    is_logged_in = request.user.is_authenticated
+    owner = False
+    
+    if is_logged_in:
+        if request.user == recipe.author:
+            owner = True
 
-    # Pending comments for the current user and recipe
-    pending_comments = Comment.objects.filter(post=recipe, user=request.user, status='pending')
-    total_pending_comments = pending_comments.count()  
+        if request.method == 'POST':
+            text = request.POST.get('comment_text')
+            Comment.objects.create(post=recipe, user=request.user, text=text, status='pending')
+            messages.success(request, 'Your comment has been created successfully. It will be visible once the admin approves.')
+            return redirect('recipe_detail', slug=slug)
 
-    # In your view
-    print("Total Approved Comments:", total_approved_comments)
-    print("Total Pending Comments:", total_pending_comments)
+        # Pending comments for the current user and recipe
+        pending_comments = Comment.objects.filter(post=recipe, user=request.user, status='pending')
+        total_pending_comments = pending_comments.count()  
 
-    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments, 'owner': owner, 'total_approved_comments': total_approved_comments, 'total_pending_comments': total_pending_comments})
+
+    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments, 'owner': owner, 'total_approved_comments': total_approved_comments, 'total_pending_comments': total_pending_comments })
 
 # Edit recipe
 
@@ -131,18 +130,5 @@ def like_recipe(request, slug):
         recipe.likes.add(request.user)
     return redirect('recipe_detail', slug=slug)
 
-# Comments
 
-@login_required
-def post_comment(request, slug):
-    recipe = get_object_or_404(Recipe, slug=slug)
-    user_featured_image_url = request.user.featured_image.url
-
-    if request.method == 'POST':
-        text = request.POST.get('comment_text')
-        # Comments are pending by default
-        Comment.objects.create(post=recipe, user=request.user, text=text, status='pending')
-        messages.success(request, 'Comment was submitted successfully. It will display on approval by admin.')
-
-
-    return render(request, 'blog/recipe_detail.html', { 'recipe': recipe, 'user_featured_image_url': user_featured_image_url })
+# Todo Update and Delete Comments
