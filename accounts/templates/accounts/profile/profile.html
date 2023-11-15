@@ -2,62 +2,65 @@
 
 {% block extracss %}
 
-  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile.css' %}"/>
 
 {% endblock extracss %}
 
 {% block content %}
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <h2 class="left-align"> <u> Profile Details </u> </h2>
-      <div class="col-md-8">
-          <!-- User Details Card -->
-          <div class="card mb-4">
-              <div class="card-body">
-                  <p class="p1">
-                      <strong><em><u><h5>USER DETAILS</h5></u></em></strong>
-                  </p>
-                  <div class="row details-row">
-                      <div class="col-12 col-md-6">
-                          <div class="profile-image text-center">
-                              <img class="img-fluid rounded-circle" src="{{user_profile.profile_picture.url}}" alt="Profile">
-                          </div>
-                          
-                      </div>
-                      <div class="col-12 col-md-5 ms-3 details">
-                          <div class="name">
-                              <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
-                          </div>
-                          <div class="uname">
-                              <p><strong>Username:</strong> {{ user_profile.user.username }}</p>
-                          </div>
-                          <div class="bio">
-                              <p><strong>User Bio:</strong> {{ user_profile.bio }}</p>
-                          </div>
-                      </div>
-                      <h4 class="mx-5 text-center mx-auto text-info">Actions</h4>
-                      <div class="edit-profile btn mt-3 col-4 d-flex justify-content-center mx-auto px-auto">
-                        <a class="btn-info border-dark px-3" href="{% url 'edit_profile' user.username %}"><i class="fa-sharp fa-solid fa-user-pen"></i></a>
+    <div class="container mt-5">
+    <div class="row justify-content-center">
+        
+        <div class="col-md-8">
+            <!-- User Details Card -->
+            <div class="card mb-4  border-top-0">
+                <div class="card card-header">
+                    <h2 class="mx-auto text-center mb-3">  Profile Details  </h2>
+                </div>
+                <div class="card-body">
+                    <p class="p1">
+                        <strong><em><u><h5>USER DETAILS</h5></u></em></strong>
+                    </p>
+                    <div class="row details-row">
+                        <div class="col-12 col-md-6">
+                            <div class="profile-image text-center">
+                                <img class="img-fluid rounded-circle" src="{{user_profile.profile_picture.url}}" alt="Profile">
+                            </div>
+                            
+                        </div>
+                        <div class="col-12 col-md-5 ms-3 details">
+                            <div class="name">
+                                <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
+                            </div>
+                            <div class="uname">
+                                <p><strong>Username:</strong> {{ user_profile.user.username }}</p>
+                            </div>
+                            <div class="bio">
+                                <p><strong>User Bio:</strong> {{ user_profile.bio }}</p>
+                            </div>
+                        </div>
+                        <h4 class="mx-5 text-center mx-auto text-info">Actions</h4>
+                        <div class="edit-profile btn mt-3 col-4 d-flex justify-content-center mx-auto px-auto">
+                            <a class="btn-info border-dark px-3" href="{% url 'edit_profile' username=user.username %}"><i class="fa-sharp fa-solid fa-user-pen"></i></a>
+                        </div>
                     </div>
-                  </div>
-              </div>
-          </div>
+                </div>
+            </div>
 
-          <!-- User History Card -->
-          <div class="card my-2">
-              <div class="card-body">
-                  <h5 class="history"><strong> <u>User History</u></strong></h5>
-                  <div class="member-p">
-                      <p>You have been our Member since {{ user_profile.created_on }}</p>
-                  </div>
-                  <div class="update">
-                      <p>You last updated your Profile details on {{ user_profile.updated_on }}</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+            <!-- User History Card -->
+            <div class="card my-2">
+                <div class="card-body">
+                    <h5 class="history"><strong> <u>User History</u></strong></h5>
+                    <div class="member-p">
+                        <p>You have been our Member since {{ user_profile.created_on }}</p>
+                    </div>
+                    <div class="update">
+                        <p>You last updated your Profile details on {{ user_profile.updated_on }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
 {% endblock content %}
