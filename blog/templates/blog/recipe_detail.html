@@ -93,11 +93,11 @@
                 {% if owner %}
                 <div>
                     <!-- Edit Bitton --> 
-                    <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-info m-3"
+                    <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-outline-info m-3"
                     ><i class="fa-sharp fa-solid fa-file-pen"></i></a
                     >
                     <!-- Delete Bitton --> 
-                    <a href="{% url 'delete_recipe' recipe.slug%}" class="btn btn-danger m-3"
+                    <a href="{% url 'delete_recipe' recipe.slug%}" class="btn btn-outline-danger m-3"
                     ><i class="fa-sharp fa-solid fa-trash"></i></a
                     >
                 </div>
