@@ -1,9 +1,17 @@
-{% extends 'accounts/base.html' %}
+{% extends 'accounts/base.html' %} {% load static %}
 <!-- User Login form -->
+
+{% block extracss %}
+
+    <link rel="stylesheet" href="{% static 'blog/css/base.css' %}" />
+
+{% endblock extracss %}
+
 {% block content %}
 <div class="container mt-5">
 <div class="row justify-content-center">
-    <div class="login-card col-md-6">
+    <h2 class="text-center">Login to Account</h2>
+    <div class="login-card col-md-6 mb-5">
         <form method="post" action="{% url "login" %}">
             {% csrf_token %}
             <div class="form-group">
