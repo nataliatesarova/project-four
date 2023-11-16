@@ -11,3 +11,8 @@ textarea, input, label{
 .row{
     max-width: 100%;
 }
+label{
+    font-weight: 600;
+    color: black;
+    text-align: start;
+}
