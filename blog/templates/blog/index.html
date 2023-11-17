@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %} {% load static %} {% block extracss %}
+{% extends "blog/base.html" %} {% load static %} {% block extracss %} {% load recipe_filters %}
 
 <link rel="stylesheet" href="{% static 'blog/css/home.css' %}" />
 
@@ -26,10 +26,10 @@
         <div class="card-body">
           <h5 class="card-title">{{recipe.title}}</h5>
           <p class="card-text">
-            {{ recipe.description|truncate_text:20|safe }}
+            {{ recipe.description|truncate_text:20|escape }}
           </p>
           <p>Authored By: {{ recipe.author.username}}</p>
-          <p>Created On: {{ recipe.created_on}}</p>
+          <p>Created : {{ recipe|format_comment_date:recipe }}</p>
           <a
             href="{% url 'recipe_detail' recipe.slug %}"
             class="btn btn-primary"
