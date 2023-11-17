@@ -24,8 +24,7 @@
 
 
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/accounts.css' %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/base.css' %}"/>
-
+        <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/base.css' %}"/>
 
 
         
@@ -73,6 +72,8 @@
 
             </header>
 
+            <main class="container">
+
               <!-- Django Messages Togglable Div -->
               <div class="alert alert-info message-div d-none" id="django-messages">
                 {% for message in messages %}
@@ -83,9 +84,13 @@
                 </span>
               </div>
 
-              <!-- Block Content -->
-              {% block content %}
-              {% endblock %}
+              <!-- Block Content div -->
+            <div class="main-container container">
+              {% block content %} 
+              
+              {% endblock content %}
+            </div>
+          </main>
 
             <footer class="bg-dark text-white text-center py-2 container-fluid">
                 <div class="container">
