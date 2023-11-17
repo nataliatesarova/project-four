@@ -10,6 +10,11 @@
     text-underline-offset: 1rem;
     margin-bottom: 1rem;
 }
+.card-body {
+    width: 100%;
+    overflow: hidden;
+    text-wrap: wrap;
+}
 
 .create-card {
     padding: 1.5rem;
