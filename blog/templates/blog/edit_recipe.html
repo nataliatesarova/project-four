@@ -1,77 +1,23 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+
 {% block extracss %}
 
-  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/edit-recipe.css' %}"/>
+<link rel="stylesheet" href="{% static 'blog/css/new_recipe.css' %}" />
 
 {% endblock extracss %}
-<!-- Edit recipe -->
+
+<!-- Edit recipe similar to Create Recipe -->
 {% block content %}
-  <div class="container my-3">
-    <div class="col recipe-update mx-2">
-      <div class="card card-header">
-        <h2 class="text-center">Update Recipe</h2>
-      </div>
-      <div class="card-body p-2">
-        <form method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          <div class="row mb-3">
-            <!-- Recipe Title Field -->
-            <div class="col-md-12">
-              <label for="id_title" class="form-label">Title</label>
-              {{ form.title }}
-            </div>
-          </div>
 
-          <div class="row mb-3">
-            <!-- Recipe Ingredients Field -->
-            <div class="col-md-12">
-              <label for="id_ingredients" class="form-label">Ingredients</label>
-              {{ form.ingredients }}
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <!-- Recipe Description Field -->
-            <div class="col-md-12">
-              <label for="id_description" class="form-label">Description</label>
-              {{ form.description }}
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <!-- Recipe Method Field -->
-            <div class="col-md-12">
-              <label for="id_method" class="form-label">Method</label>
-              {{ form.method }}
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <!-- Recipe Featured Image Field -->
-            <div class="col-md-6">
-              <label for="id_featured_image" class="form-label">Featured Image</label>
-              <img src="{{ form.instance.featured_image.url }}" alt="Current Featured Image" class="img-fluid mb-2">
-              <div class="change border rounded-pill p-1 border-dark mx-auto">
-                <input type="file" name="featured_image" id="id_featured_image" class="form-control">
-              </div>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <!-- Recipe Status Field -->
-            <div class="col-md-6">
-              <label for="id_status" class="form-label">Status</label>
-              {{ form.status }}
-            </div>
-          </div>
-
-          <div class="row text-center m-auto">
-            <button type="submit" class="btn btn-primary my-2 me-3 col-md-3 m-auto">Update Recipe</button>
-            <a class="btn btn-secondary col-md-3 my-2 m-auto" href="{% url 'recipe_detail' recipe.slug %}">Cancel</a>
-          </div>
-        </form>
-      </div>
-    </div>
+<div class="col card create-recipe-card">
+  <div class="card-body create-card">
+    <h2 class="card-title">Update {{ recipe.title}}</h2>
+    <form method="post" enctype="multipart/form-data" class="create-recipe-form">
+      {% csrf_token %} 
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary mx-auto col-6 no-wrap">Update</button>
+    </form>
   </div>
+</div>
 {% endblock %}

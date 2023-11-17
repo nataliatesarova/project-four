@@ -38,7 +38,7 @@
                                     <img style="height: 2rem; border-radius: 0.8rem;" src="{{ comment.user.profile.profile_picture.url }}" class="comment-avatar" alt="User Avatar" />
                                     {{ comment.user.username }}
                                     <span style="font-size: small; float: right;">
-                                        {{ comment|format_comment_date:recipe }}
+                                        {{ comment|format_comment_date:recipe|escape }}
                                     </span>
                                 </p>
                                 <p>{{ comment.text }}</p>
@@ -117,7 +117,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Description</h5>
-                    <p class="card-text">{{recipe.description}}</p>
+                    <p class="card-text">{{recipe.description|linebreaks}}</p>
                 </div>
             </div>
 
@@ -125,7 +125,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Ingredients</h5>
-                    <p class="card-text">{{recipe.ingredients}}</p>
+                    <p class="card-text">{{recipe.ingredients|linebreaks}}</p>
                 </div>
             </div>
             
@@ -133,7 +133,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Method</h5>
-                    <p class="card-text">{{recipe.method}}</p>
+                    <p class="card-text">{{recipe.method|linebreaks}}</p>
                 </div>
             </div>
         </div>
