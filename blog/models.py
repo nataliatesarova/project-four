@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
 from django.conf import settings
+from bs4 import BeautifulSoup
+
 
 
 # Define possible status choices for the Recipe model.
@@ -14,8 +16,8 @@ class Recipe(models.Model):
     slug = models.SlugField("Slug", max_length=200, unique=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="recipe_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    ingredients = models.TextField()
     description = models.TextField()
+    ingredients = models.TextField()
     featured_image = CloudinaryField('feature_image', default='https://res.cloudinary.com/dxtdvo8ix/image/upload/v1698401021/nc6mwhbwix6kpzfcix99.jpg')
     method = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -37,7 +39,19 @@ class Recipe(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        super(Recipe, self).save(*args, **kwargs)
+        # Strip HTML tags for each field
+        fields_to_strip = ['ingredients', 'description', 'method']
+
+        for field_name in fields_to_strip:
+            field_value = getattr(self, field_name, '')
+            soup = BeautifulSoup(field_value, 'html.parser')
+            setattr(self, field_name, soup.get_text())
+            stripped_text = soup.get_text()
+            
+            # Preserve new lines in text
+            cleaned_text = stripped_text.replace('\r\n', '\n').replace('\r', '\n')
+            setattr(self, field_name, cleaned_text)
+        super().save(*args, **kwargs)
 
 
 # Comment status choices
@@ -57,15 +71,13 @@ class Comment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     text = models.TextField()
-    # DateTimeField named 'created_on' that automatically sets the current date and time when a new comment is created.
     created_on = models.DateTimeField(auto_now_add=True)
-    # Create a boolean field named 'approved' with a default value of False which can be used to indicate if the comment has been approved or not.
     is_edited = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     status = models.CharField(
         choices=COMMENT_STATUS_CHOICES, default='pending', max_length=20)
 
-    # Comments will be sorted by ascending order (oldest comments first).
+    # Comments will be sorted by ascending order.
     class Meta:
         ordering = ['created_on']
 
