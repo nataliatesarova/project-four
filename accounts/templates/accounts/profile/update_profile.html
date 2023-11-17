@@ -50,7 +50,7 @@
 
         <!-- First Name and Last Name Fields -->
         <div class="row mb-3">
-          <h3 class="text-center mb-4"><u>User Name</u></h3>
+          <h3 class="mb-4"><u>User Name</u></h3>
           
           <div class="col-md-6">
             <label for="id_first_name" class="form-label">First Name</label>
@@ -65,17 +65,16 @@
         </div>
 
         <div class="row mt-5 align-start">
-          <button
-            type="submit"
-            class="btn btn-primary my-2 me-3 col-md-2 m-auto no-wrap"
-          >
-            Save
-          </button>
-          <a
-            class="btn btn-secondary col-md-2 my-2 m-auto"
-            href="{% url 'profile' username=user.username %}"
-            >Cancel</a
-          >
+
+          <div class="save col-md-6 col-sm-6 col-xs-6 col-6">
+            <button type="submit" class="btn btn-primary my-2 me-3  m-auto no-wrap">Save</button>
+          </div>
+          
+
+          <div class="cancel col-md-6 col-sm-6 col-xs-6 col-6">
+            <a class="btn btn-secondary  my-2 m-auto" href="{% url 'profile' username=user.username %}">Cancel</a>
+          </div>
+          
         </div>
       </form>
     </div>
