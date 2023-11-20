@@ -24,3 +24,4 @@ tinycss2==1.1.1
 typing_extensions==4.8.0
 urllib3==1.26.16
 webencodings==0.5.1
+whitenoise==6.6.0
