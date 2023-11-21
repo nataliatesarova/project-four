@@ -42,8 +42,24 @@ Happy coding!
 
 ## Description
 
----------------------------------------
 Recipe, a web platform crafted with Django using Python, JavaScript, CSS/Bootstrap, and HTML, is a celebration of the heartwarming world of home-cooked meals.
 Tailored for home cooks around the globe, this website provides a virtual haven for users passionate about sharing their culinary creations. Whether you're a seasoned home chef or an enthusiastic cook, Recipe empowers you to create and share your favorite home-cooked recipes.
-Created as the fourth project for the Code Institute Diploma in Software Development, HomeChef Hub is a lively place where users can do more than just create recipes—they can add a personal touch to their profiles. The site also features user authentication and full CRUD functionality.
+Created as the fourth project for the Code Institute Diploma in Software Development, Recipe is a lively place where users can do more than just create recipes—they can add a personal touch to their profiles. The site also features user authentication and full CRUD functionality.
 Elevate your dishes with appealing photos and share your cooking story through visual elements. Moreover, the platform includes CRUD, and gives the option to like and leave comments under the recipes.
+Link to the live site - [Recipe]()
+
+## Design
+
+#### Wireframe mock-ups
+
+[Balsamiq](https://balsamiq.com/) was used to design the wireframes for my website.
+![Home Page Wireframe](/)
+![Recipe Page when login Wireframe](/)
+![Recipe Page Wireframe](/)
+![Register Wireframe](/)
+![Login Wireframe](/)
+![Add new recipe Wireframe](/)
+![MyProfile Wireframe](/)
+
+#### Database Schema
+![Database Schema Diagram](/)
