@@ -1,5 +1,6 @@
 from django import template
 from django.utils import timezone
+import re
 
 register = template.Library()
 
@@ -9,6 +10,16 @@ def truncate_text(value, max_length):
     if len(value) <= max_length:
         return value
     return value[:max_length] + ' . . .'
+
+# Truncate after first line.
+@register.filter
+def first_sentence(value):
+    # Finding the first sentence with Regular Expression
+    match = re.search(r'(?<=[.!?])\s+', value)
+    if match:
+        return value[:match.start()]
+    else:
+        return value
 
 # Date and time Filter for Comments
 @register.filter
