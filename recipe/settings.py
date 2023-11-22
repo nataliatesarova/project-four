@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['localhost',
-                '*',
+                 '*',
                  '8014-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
                  '8000-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
                  'recipeblog-e0d016298fa8.herokuapp.com']
@@ -64,7 +64,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'recipe.urls'
@@ -82,7 +81,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'builtins': [
-                'blog.templatetags.recipe_filters', 
+                'blog.templatetags.recipe_filters',
             ],
         },
     },
@@ -112,7 +111,7 @@ DATABASES = {
 
 # Authentications Backends
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',    
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 # Customized user model
