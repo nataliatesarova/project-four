@@ -63,4 +63,4 @@ Link to the live site - [Recipe]()
 
 #### Database Schema
 ![Database Schema Diagram](assets/databaseschema.png)
-The database schemas were designed using [Lucid App](https://lucid.app/) These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. Recipe comprises five models: Recipe, Profile, User, Comment, and Likes.
+The database schemas were designed using [Lucid App](https://lucid.app/) These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. Recipe comprises four models: Recipe, Profile, User and Comment.
