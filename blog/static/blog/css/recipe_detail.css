@@ -6,6 +6,12 @@ body {
     margin: 0;
     padding: 0;
 }
+.container{
+    width: 100%;
+}
+.card{
+    width: 100%;
+}
 h1{
     border-bottom: solid black 4px;
 }
@@ -41,9 +47,8 @@ h1{
     overflow: hidden;
 }
 .image-container img{
-    height: 100%;
     width: 100%;
-    
+
 }
 .show-comments{
     max-height: 2rem;

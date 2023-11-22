@@ -12,7 +12,7 @@
     <h3>My blog</h3>
     <!-- for loop to display recipe details -->
     {% for recipe in current_page %}
-    <div class="col-md-4 col-sm-6 col-12 mb-4">
+    <div class="col-md-4 col-sm-12 col-12 col-xs-12 col-12 mb-4">
       <div class="card">
         <div class="image-container">
           <a href="{% url 'recipe_detail' recipe.slug %}">
@@ -30,12 +30,13 @@
           </p>
           <p>Authored By: {{ recipe.author.username}}</p>
           <p>Created : {{ recipe|format_comment_date:recipe }}</p>
-          <a
+          
+        </div>
+        <a
             href="{% url 'recipe_detail' recipe.slug %}"
-            class="btn btn-primary"
+            class="btn btn-primary m-1"
             >View More Details</a
           >
-        </div>
       </div>
     </div>
     <!-- check if column items are divisible by 3 -->
