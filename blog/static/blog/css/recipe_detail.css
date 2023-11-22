@@ -40,6 +40,11 @@ h1{
     height: 12rem;
     overflow: hidden;
 }
+.image-container img{
+    height: 100%;
+    width: 100%;
+    
+}
 .show-comments{
     max-height: 2rem;
     overflow-y: auto;
