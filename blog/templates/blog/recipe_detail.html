@@ -81,7 +81,7 @@ recipe_filters %} {% block extracss %}
           {% if user.is_authenticated %}
           <div class="user-actions">
             <!-- Comment form -->
-            <form method="post" action="">
+            <form method="post">
               {% csrf_token %}
               <div class="form-group">
                 <h6>Your Comment</h6>
