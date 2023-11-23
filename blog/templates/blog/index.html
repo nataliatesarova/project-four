@@ -1,4 +1,5 @@
-{% extends "blog/base.html" %} {% load static %} {% block extracss %} {% load recipe_filters %}
+{% extends "blog/base.html" %} {% load static %} {% block extracss %} {% load
+recipe_filters %}
 
 <link rel="stylesheet" href="{% static 'blog/css/home.css' %}" />
 
@@ -18,7 +19,7 @@
           <a href="{% url 'recipe_detail' recipe.slug %}">
             <img
               src="{{ recipe.featured_image.url }}"
-              class="card-img-top"
+              class="card-img-top new-class"
               alt="{{ recipe.title }}"
             />
           </a>
@@ -30,13 +31,12 @@
           </p>
           <p>Authored By: {{ recipe.author.username}}</p>
           <p>Created : {{ recipe|format_comment_date:recipe }}</p>
-          
         </div>
         <a
-            href="{% url 'recipe_detail' recipe.slug %}"
-            class="btn btn-primary m-1"
-            >View More Details</a
-          >
+          href="{% url 'recipe_detail' recipe.slug %}"
+          class="btn btn-primary m-1"
+          >View More Details</a
+        >
       </div>
     </div>
     <!-- check if column items are divisible by 3 -->
