@@ -1,11 +1,9 @@
-{% extends "blog/base.html" %} {% load static %} {% block extracss %} {% load
-recipe_filters %}
+{% extends "blog/base.html" %} {% load static %} {% block extracss %}
 
 <link rel="stylesheet" href="{% static 'blog/css/home.css' %}" />
 
-{% endblock extracss %} {% block content %}
+{% endblock extracss %} {% load recipe_filters %} {% block content %}
 <!-- jjj -->
-{% load recipe_filters %}
 
 <div class="container">
   <!-- Blog Entries Column -->

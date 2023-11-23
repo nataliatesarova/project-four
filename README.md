@@ -41,4 +41,3 @@ Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of 
 ![Django User Stories](assets/django_user_stories.png)
 
 A full list of user stories can be found in the [HomeChef] (https://github.com/users/nataliatesarova/projects/6/views/1).
-
