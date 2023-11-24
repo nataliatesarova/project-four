@@ -41,3 +41,12 @@ Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of 
 ![Django User Stories](assets/django_user_stories.png)
 
 A full list of user stories can be found in the [HomeChef] (https://github.com/users/nataliatesarova/projects/6/views/1).
+
+## Future features
+Allow the user to save a draft version of a recipe to edit and complete at a later time.
+Bio to be available for all registered users to view
+Recipe Search and Filters: Allow users to search for recipes using keywords, ingredients, cuisine, and dietary preferences (e.g. gluten free, vegan)
+Recipe Categories: Categorize recipes into sections such as breakfast, lunch, dinner, desserts.
+Add difficulty level, serving size, nutritional and calorific information.
+Newsletter Subscription: Provide a subscription option for users to receive regular updates on new recipes, cooking tips, and the latest blog updates.
+Enable sharing of recipes directly via social media.
