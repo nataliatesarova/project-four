@@ -13,13 +13,13 @@ Link to the live site - [HomeChef](https://recipeblog-e0d016298fa8.herokuapp.com
 #### Wireframe mock-ups
 
 [Balsamiq](https://balsamiq.com/) was used to design the wireframes for my website.
-![Home Page Wireframe](/)
-![Recipe Page when login Wireframe](/)
-![Recipe Page Wireframe](/)
-![Register Wireframe](/)
-![Login Wireframe](/)
-![Add new recipe Wireframe](/)
-![MyProfile Wireframe](/)
+![Home Page Wireframe](assets/balsamiq/balsamiq1.png)
+![Recipe Page when login Wireframe](assets/balsamiq/balsamiqlogin.png)
+![Recipe Page Wireframe not login](assets/balsamiq/balsamiqnotlogin.png)
+![Register Wireframe](assets/balsamiq/balsamiqregister.png)
+![Login Wireframe](assets/balsamiq/loginbalsamiq.png)
+![Add new recipe Wireframe](assets/balsamiq/addnewrecipebalsamiq.png)
+![MyProfile Wireframe](assets/balsamiq/myprofilebalsamiq.png)
 
 #### Database Schema
 ![Database Schema Diagram](assets/databaseschema.png)
