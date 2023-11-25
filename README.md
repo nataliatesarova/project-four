@@ -94,6 +94,8 @@ Test Cases:
 Validate presence and functionality of required fields in the registration form.
 Test successful creation of a new user account after form submission.
 
+Testing Passed
+
 #### Secure Login (Must Have)
 
 Acceptance Criteria:
@@ -102,13 +104,16 @@ Test Cases:
 Verify secure login functionality using valid user credentials.
 Test failed login attempts with incorrect credentials.
 
+Testing Passed
+
 ### Profile Page (Could Have)
 Acceptance Criteria:
 Registered users can access their profile page for viewing and editing.
 Test Cases:
 Validate user access to the profile page after login.
 Test user ability to view and edit profile information.
-Recipe Management
+
+Testing Passed
 
 ### Recipe Management
 
@@ -119,12 +124,16 @@ Test Cases:
 Verify successful creation of new recipes with all required details.
 Test visibility of newly created recipes in the user's profile.
 
+Testing Passed
+
 #### Editing and Deleting Recipes (Must Have)
 Acceptance Criteria:
 Logged-in users can edit and delete their created recipes.
 Test Cases:
 Test modification of recipe details (title, ingredients, description, method, images).
 Test successful deletion of created recipes.
+
+Testing Passed
 
 #### Browsing and Viewing Recipes (Must Have)
 Acceptance Criteria:
@@ -133,12 +142,16 @@ Test Cases:
 Validate the ability to browse and access complete recipe details.
 Test page navigation and ensure display of necessary information.
 
+Testing Passed
+
 #### Pagination for Recipe Browsing (Should Have)
 Acceptance Criteria:
 Users can view a maximum of 9 recipes per page and navigate between pages.
 Test Cases:
 Verify that the maximum number of recipes per page is displayed.
 Test navigation between pages for seamless browsing.
+
+Testing Passed
 
 ### Interaction with Recipes
 
@@ -149,12 +162,16 @@ Test Cases:
 Verify the ability of logged-in users to like recipes.
 Test the accurate display of the number of likes for each recipe.
 
+Testing Passed
+
 #### Posting Comments on Recipes (Should Have)
 Acceptance Criteria:
 Registered users can post comments on recipes.
 Test Cases:
-Test user ability to post comments on recipes.
+Test that only registered and logged in users have the ability to post comments on recipes.
 Validate that posted comments appear correctly under respective recipes.
+
+Testing Passed
 
 ### Admin Panel and Content Management
 
@@ -165,12 +182,16 @@ Test Cases:
 Verify secure login functionality for the admin panel using valid admin credentials.
 Test unsuccessful login attempts with incorrect admin credentials.
 
+Testing Passed
+
 #### Managing Users (Must Have)
 Acceptance Criteria:
 Admins can access a list of all users and manage user accounts.
 Test Cases:
 Validate admin access to the list of all users.
 Test admin actions for managing user accounts (edit/delete).
+
+Testing Passed
 
 #### Managing Recipes (Must Have)
 Acceptance Criteria:
@@ -179,6 +200,8 @@ Test Cases:
 Verify admin ability to edit/delete any recipe on the site.
 Test that changes made by the admin reflect correctly.
 
+Testing Passed
+
 #### Moderating Comments (Should Have)
 Acceptance Criteria:
 Admins can review, approve, moderate, block, edit, or delete comments.
@@ -186,12 +209,16 @@ Test Cases:
 Validate admin actions for comment moderation (approve, edit, delete, block).
 Test that comments are appropriately moderated according to admin actions.
 
+Testing Passed
+
 #### Viewing Likes for Recipes (Should Have)
 Acceptance Criteria:
 Admins can track trends and popular recipes based on likes.
 Test Cases:
 Verify admin access to view likes for recipes.
 Ensure accuracy in tracking and displaying popular recipes based on likes.
+
+Testing Passed
 
 
 
