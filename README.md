@@ -10,7 +10,7 @@ Link to the live site - [HomeChef](https://recipeblog-e0d016298fa8.herokuapp.com
 
 ## Design
 
-#### Wireframe mock-ups
+### Wireframe mock-ups
 
 [Balsamiq](https://balsamiq.com/) was used to design the wireframes for my website.
 ![Home Page Wireframe](assets/balsamiq/balsamiq1.png)
@@ -21,7 +21,7 @@ Link to the live site - [HomeChef](https://recipeblog-e0d016298fa8.herokuapp.com
 ![Add new recipe Wireframe](assets/balsamiq/addnewrecipebalsamiq.png)
 ![MyProfile Wireframe](assets/balsamiq/myprofilebalsamiq.png)
 
-#### Database Schema
+### Database Schema
 ![Database Schema Diagram](assets/databaseschema.png)
 The database schemas were designed using [Lucid App](https://lucid.app/) These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. Recipe comprises four models: Recipe, Profile, User and Comment.
 
@@ -31,21 +31,75 @@ The project applied Agile Methodology on GitHub for planning and execution. User
 
 Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of these stories was also assigned story points based on their complexity.
 
-### Epics
+## Epics
 
-1. User Authentication and Profiles [#1](https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39537085)
-2. Recipe management#21 [#2](https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39569106)
-3. Interaction with recipes [#3](https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39571127)
-4. Admin panel and content management [#4](https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39536019)
+### User Authentication and Profiles [#1] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39537085)
 
-![Django User Stories](assets/django_user_stories.png)
+### Recipe management [#2] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39569106)
 
-A full list of user stories can be found in the [HomeChef] (https://github.com/users/nataliatesarova/projects/6/views/1).
+### Interaction with recipes [#3] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39571127)
 
-### User stories
+### Admin panel and content management [#4] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39536019)
 
-User Authentication and Profiles
-*As a new user i can complete a registration form with fields for username, name, email and password so that I can access the site to post recipes, comments and likes
+
+## User stories
+
+The following user stories (by epic) were completed:
+
+### User Authentication and Profiles
+As a new user I can complete a registration form with fields for username, name, email and password so that I can access the site to post recipes, comments and likes.
+
+As a registered user I can securely log in using my email and password so that I can access and use the site.
+
+As a registered user i can access my profile page for viewing and editing so that I can personalize my profile information.
+
+### Recipe management
+As a registered user i can create new recipes by providing a title, a list of ingredients, description, detailed method, and images so that I can actively participate in a cooking and recipe-sharing community, access a convenient personal recipe archive, express my culinary creativity and receive feedback and engagement from others.
+
+As a logged-in user I can edit any recipe that I've created including modifying the title, ingredients, description, method, and associated images so that I can maintain and improve the recipes, resulting in better cooking outcomes and increased engagement with the platform.
+
+As a logged-in user I can delete recipes I've created when necessary so that I can manage the recipe content effectively, ensuring that my profile reflects my best and most relevant culinary creations.
+
+As any user I can browse recipes available on the site whether logged in or not so that all can explore, discover, and engage with a variety of recipes, providing inspiration and a sense of community around cooking.
+
+As any user I can click on a recipe to access its complete details, which encompass information about ingredients, description, cooking instructions, images, comments, and likes so that i can access detailed recipe information.
+
+As a user I can view a maximum of 9 recipes per page and have the ability to navigate between pages so that I can conveniently browse recipes.
+
+### Interaction with recipes
+As a logged-in user I can like a recipe and see number of likes so that I can personalize my recipe collection, engage with others, discover popular dishes, and enhance the overall experience on the platform by expressing preferences and interests in cooking.
+
+As a registered user I can post comments on recipes so that i can actively participate in the culinary community, share expertise and improve recipes.
+
+### Admin panel and content management
+As a superuser (admin) I can securely log in to the admin panel using my admin credentials so that site administration can be performed.
+
+As a superuser I can access a list of all users so that it is possible to manage users.
+
+As a superuser I can edit and delete user accounts as needed so that I can prevent misuse and inappropriate content on the site.
+
+As a superuser I can edit or delete any recipe on the site, regardless of the user who posted it so that the site can be appropriately managed.
+
+As a superuser i can review, approve and moderate comments across the entire site so that i can block, edit and delete inappropriate comments so that I can properly moderate the site.
+
+As a superuser I can view the likes for recipes so that I can track trends and most popular recipes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88,6 +142,11 @@ On clicking 'Log Out' the user is redirected to the homepage where the recipes c
 On logging in the user is given the message 'Welcome, you are now logged in'
 
 
-### Admin
+### Comment on recipes
+On posting a comment the logged in user is presented with the message 'Your comment has been created successfully. It will be visible once the admin approves.'
+
+Once the comment has been checked and approved by the admin it will be visible.
+
+
 
 
