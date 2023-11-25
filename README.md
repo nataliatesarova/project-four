@@ -79,4 +79,7 @@ The registered and logged in user will have the option to add a recipe by clicki
 ### User profile
 When the user logs in the 'My Profile' tab appears in the Navbar. On clicking 'My Profile' the profile detail page opens where the profile pic, name, username,user bio and user history can be viewed. User history shows when the profile was created and last edited.
 
-The profile can be edited with clicking of the action edit icon. It is not mandatory to fill in any fields on the profile, and if no profile pic is uploaded a default smiley face is displayed.
+The profile can be edited with clicking of the action edit icon. It is not mandatory to fill in any fields on the profile, and if no profile pic is uploaded a default smiley face is displayed. The profile pic is displayed when a user published a comment.
+
+### Log out
+On clicking 'Log Out' the user is redirected to the homepage where the recipes can be viewed, and with option to register and login.
