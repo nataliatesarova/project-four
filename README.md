@@ -25,6 +25,24 @@ Link to the live site - [HomeChef](https://recipeblog-e0d016298fa8.herokuapp.com
 ![Database Schema Diagram](assets/databaseschema.png)
 The database schemas were designed using [Lucid App](https://lucid.app/) These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. Recipe comprises four models: Recipe, Profile, User and Comment.
 
+ADD COLOR SCHEME-------
+
+## UX
+
+Our cooking community, HomeChef, is all about sharing and discovering delicious recipes. It's a place where people from all over the world can explore different flavors and cooking styles. Our simple design aims to make everyone focus on the recipes and food pics themselves, and make the experience enjoyable.
+
+Who We're For:
+
+People who love cooking and want to share their favorite recipes.
+Folks who want to learn more about cooking and try new things in the kitchen.
+Those who want ideas for yummy and exciting dishes to make.
+
+What We Aim For:
+
+Collecting lots of different and delicious recipes for everyone to enjoy.
+Giving people a place to show off the tasty dishes they make.
+Making a cozy spot where food lovers can find inspiration with amazing recipes.
+
 ## Agile Development
 
 The project applied Agile Methodology on GitHub for planning and execution. User Stories were established as GitHub issues, outlining their purposes distinctly. Each story contained specific acceptance criteria and tasks, categorized using colored labels such as 'must-have', 'should-have', 'could-have', or 'won't-have' to manage tasks during iterations.
@@ -277,12 +295,7 @@ On clicking 'Log Out' the user is redirected to the homepage where the recipes c
 ### Log in
 On logging in the user is given the message 'Welcome, you are now logged in'
 
-
 ### Comment on recipes
 On posting a comment the logged in user is presented with the message 'Your comment has been created successfully. It will be visible once the admin approves.'
 
 Once the comment has been checked and approved by the admin it will be visible.
-
-
-
-
