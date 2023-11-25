@@ -42,6 +42,15 @@ Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of 
 
 A full list of user stories can be found in the [HomeChef] (https://github.com/users/nataliatesarova/projects/6/views/1).
 
+### User stories
+
+User Authentication and Profiles
+*As a new user i can complete a registration form with fields for username, name, email and password so that I can access the site to post recipes, comments and likes
+
+
+
+
+
 ## Future features
 Allow the user to save a draft version of a recipe to edit and complete at a later time.
 Bio to be available for all registered users to view
@@ -68,4 +77,6 @@ During registration the user must complete all the required fields: username, fi
 The registered and logged in user will have the option to add a recipe by clicking on the ‘Add new recipe’ option on the navigation bar. The user must enter the fields for Title, Description, Ingredients and Method. If the user does not enter all off these fields and click the submission ‘Create Recipe’ button a ‘Please fill in this field’ prompt will appear. Submitting an image is optional. If no image is submitted a default tomato image will be displayed. The user can designate the recipe post as draft or published and the click the ‘Create Recipe’ button, which will return the user to the homepage with the appearance of a ‘Recipe created successfully’ notice. Draft posts allows the admin to plan publication date and help with editing before publication. If the user designates the recipe as published, admin must first approve it before the recipe appears to the public.
 
 ### User profile
-When I click on "My Profile," I'll see my user details where I can edit my profile and view my user history.
+When the user logs in the 'My Profile' tab appears in the Navbar. On clicking 'My Profile' the profile detail page opens where the profile pic, name, username,user bio and user history can be viewed. User history shows when the profile was created and last edited.
+
+The profile can be edited with clicking of the action edit icon. It is not mandatory to fill in any fields on the profile, and if no profile pic is uploaded a default smiley face is displayed.
