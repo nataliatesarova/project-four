@@ -31,7 +31,9 @@ The project applied Agile Methodology on GitHub for planning and execution. User
 
 Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of these stories was also assigned story points based on their complexity.
 
-## Epics
+## Epics and user stories
+
+The following user stories (by epic) were completed. The MoSCoW prioritization was used to categorize the EPIC and user story tasks into Must Have, Should Have, Could Have, and Won't Have. Must Haves are critical, Should Haves are important, Could Haves are desirable, and Won't Haves are excluded for now. It helps focus on crucial tasks first, ensuring project success while allowing flexibility for less critical items.
 
 ### User Authentication and Profiles [#1] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39537085)
 
@@ -41,48 +43,46 @@ Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of 
 
 ### Admin panel and content management [#4] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39536019)
 
-
-## User stories
-
-The following user stories (by epic) were completed:
-
 ### User Authentication and Profiles
-As a new user I can complete a registration form with fields for username, name, email and password so that I can access the site to post recipes, comments and likes.
+As a new user I can complete a registration form with fields for username, name, email and password so that I can access the site to post recipes, comments and likes.`(MUST HAVE)`
 
-As a registered user I can securely log in using my email and password so that I can access and use the site.
+As a registered user I can securely log in using my email and password so that I can access and use the site. `(MUST HAVE)`
 
-As a registered user i can access my profile page for viewing and editing so that I can personalize my profile information.
+As a registered user I can access my profile page for viewing and editing so that I can personalize my profile information.`(COULD HAVE)`
 
 ### Recipe management
-As a registered user i can create new recipes by providing a title, a list of ingredients, description, detailed method, and images so that I can actively participate in a cooking and recipe-sharing community, access a convenient personal recipe archive, express my culinary creativity and receive feedback and engagement from others.
+As a registered user I can create new recipes by providing a title, a list of ingredients, description, detailed method, and images so that I can actively participate in a cooking and recipe-sharing community, access a convenient personal recipe archive, express my culinary creativity and receive feedback and engagement from others.`(MUST HAVE)`
 
-As a logged-in user I can edit any recipe that I've created including modifying the title, ingredients, description, method, and associated images so that I can maintain and improve the recipes, resulting in better cooking outcomes and increased engagement with the platform.
+As a logged-in user I can edit any recipe that I've created including modifying the title, ingredients, description, method, and associated images so that I can maintain and improve the recipes, resulting in better cooking outcomes and increased engagement with the platform.`(MUST HAVE)`
 
-As a logged-in user I can delete recipes I've created when necessary so that I can manage the recipe content effectively, ensuring that my profile reflects my best and most relevant culinary creations.
+As a logged-in user I can delete recipes I've created when necessary so that I can manage the recipe content effectively, ensuring that my profile reflects my best and most relevant culinary creations.`(MUST HAVE)`
 
-As any user I can browse recipes available on the site whether logged in or not so that all can explore, discover, and engage with a variety of recipes, providing inspiration and a sense of community around cooking.
+As any user I can browse recipes available on the site whether logged in or not so that all can explore, discover, and engage with a variety of recipes, providing inspiration and a sense of community around cooking.`(MUST HAVE)`
 
-As any user I can click on a recipe to access its complete details, which encompass information about ingredients, description, cooking instructions, images, comments, and likes so that i can access detailed recipe information.
+As any user I can click on a recipe to access its complete details, which encompass information about ingredients, description, cooking instructions, images, comments, and likes so that i can access detailed recipe information. `(MUST HAVE)`
 
-As a user I can view a maximum of 9 recipes per page and have the ability to navigate between pages so that I can conveniently browse recipes.
+As a user I can view a maximum of 9 recipes per page and have the ability to navigate between pages so that I can conveniently browse recipes.`(SHOULD HAVE)`
 
 ### Interaction with recipes
-As a logged-in user I can like a recipe and see number of likes so that I can personalize my recipe collection, engage with others, discover popular dishes, and enhance the overall experience on the platform by expressing preferences and interests in cooking.
+As a logged-in user I can like a recipe and see number of likes so that I can personalize my recipe collection, engage with others, discover popular dishes, and enhance the overall experience on the platform by expressing preferences and interests in cooking.`(SHOULD HAVE)`
 
-As a registered user I can post comments on recipes so that i can actively participate in the culinary community, share expertise and improve recipes.
+As a registered user I can post comments on recipes so that i can actively participate in the culinary community, share expertise and improve recipes.`(SHOULD HAVE)`
 
 ### Admin panel and content management
-As a superuser (admin) I can securely log in to the admin panel using my admin credentials so that site administration can be performed.
+As a superuser (admin) I can securely log in to the admin panel using my admin credentials so that site administration can be performed. `(MUST HAVE)`
 
-As a superuser I can access a list of all users so that it is possible to manage users.
+As a superuser I can access a list of all users so that it is possible to manage users. `(MUST HAVE)`
 
-As a superuser I can edit and delete user accounts as needed so that I can prevent misuse and inappropriate content on the site.
+As a superuser I can edit and delete user accounts as needed so that I can prevent misuse and inappropriate content on the site. `(MUST HAVE)`
 
-As a superuser I can edit or delete any recipe on the site, regardless of the user who posted it so that the site can be appropriately managed.
+As a superuser I can edit or delete any recipe on the site, regardless of the user who posted it so that the site can be appropriately managed.`(MUST HAVE)`
 
-As a superuser i can review, approve and moderate comments across the entire site so that i can block, edit and delete inappropriate comments so that I can properly moderate the site.
+As a superuser I can review, approve and moderate comments across the entire site so that i can block, edit and delete inappropriate comments so that I can properly moderate the site. `(SHOULD HAVE)`
 
-As a superuser I can view the likes for recipes so that I can track trends and most popular recipes
+As a superuser I can view the likes for recipes so that I can track trends and most popular recipes. `(SHOULD HAVE)` 
+
+
+
 
 
 
