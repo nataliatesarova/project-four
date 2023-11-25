@@ -82,7 +82,116 @@ As a superuser I can review, approve and moderate comments across the entire sit
 As a superuser I can view the likes for recipes so that I can track trends and most popular recipes. `(SHOULD HAVE)` 
 
 
+## Testing of user stories
 
+### User Authentication and Profiles
+
+#### Registration Form (Must Have)
+Acceptance Criteria:
+Fields for username, name, email, and password must be present in the registration form.
+Upon successful submission, a new user account is created.
+Test Cases:
+Validate presence and functionality of required fields in the registration form.
+Test successful creation of a new user account after form submission.
+
+#### Secure Login (Must Have)
+
+Acceptance Criteria:
+Users can securely log in using their email and password.
+Test Cases:
+Verify secure login functionality using valid user credentials.
+Test failed login attempts with incorrect credentials.
+
+### Profile Page (Could Have)
+Acceptance Criteria:
+Registered users can access their profile page for viewing and editing.
+Test Cases:
+Validate user access to the profile page after login.
+Test user ability to view and edit profile information.
+Recipe Management
+
+### Recipe Management
+
+#### Creating Recipes (Must Have)
+Acceptance Criteria:
+Registered users can create new recipes with title, ingredients, description, method, and images.
+Test Cases:
+Verify successful creation of new recipes with all required details.
+Test visibility of newly created recipes in the user's profile.
+
+#### Editing and Deleting Recipes (Must Have)
+Acceptance Criteria:
+Logged-in users can edit and delete their created recipes.
+Test Cases:
+Test modification of recipe details (title, ingredients, description, method, images).
+Test successful deletion of created recipes.
+
+#### Browsing and Viewing Recipes (Must Have)
+Acceptance Criteria:
+All users can browse recipes and view their complete details.
+Test Cases:
+Validate the ability to browse and access complete recipe details.
+Test page navigation and ensure display of necessary information.
+
+#### Pagination for Recipe Browsing (Should Have)
+Acceptance Criteria:
+Users can view a maximum of 9 recipes per page and navigate between pages.
+Test Cases:
+Verify that the maximum number of recipes per page is displayed.
+Test navigation between pages for seamless browsing.
+
+### Interaction with Recipes
+
+#### Liking Recipes (Should Have)
+Acceptance Criteria:
+Logged-in users can like recipes and view the number of likes.
+Test Cases:
+Verify the ability of logged-in users to like recipes.
+Test the accurate display of the number of likes for each recipe.
+
+#### Posting Comments on Recipes (Should Have)
+Acceptance Criteria:
+Registered users can post comments on recipes.
+Test Cases:
+Test user ability to post comments on recipes.
+Validate that posted comments appear correctly under respective recipes.
+
+### Admin Panel and Content Management
+
+#### Admin Login (Must Have)
+Acceptance Criteria:
+Superuser/admin can securely log in to the admin panel using admin credentials.
+Test Cases:
+Verify secure login functionality for the admin panel using valid admin credentials.
+Test unsuccessful login attempts with incorrect admin credentials.
+
+#### Managing Users (Must Have)
+Acceptance Criteria:
+Admins can access a list of all users and manage user accounts.
+Test Cases:
+Validate admin access to the list of all users.
+Test admin actions for managing user accounts (edit/delete).
+
+#### Managing Recipes (Must Have)
+Acceptance Criteria:
+Admins can edit/delete any recipe on the site.
+Test Cases:
+Verify admin ability to edit/delete any recipe on the site.
+Test that changes made by the admin reflect correctly.
+
+#### Moderating Comments (Should Have)
+Acceptance Criteria:
+Admins can review, approve, moderate, block, edit, or delete comments.
+Test Cases:
+Validate admin actions for comment moderation (approve, edit, delete, block).
+Test that comments are appropriately moderated according to admin actions.
+
+#### Viewing Likes for Recipes (Should Have)
+Acceptance Criteria:
+Admins can track trends and popular recipes based on likes.
+Test Cases:
+Verify admin access to view likes for recipes.
+Ensure accuracy in tracking and displaying popular recipes based on likes.
 
 
 
