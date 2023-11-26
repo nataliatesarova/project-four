@@ -323,8 +323,30 @@ All tests passed
 
 # Technologies
 
+Languages:
+HTML5
+CSS3
+Javascript
+Python
+
+Frameworks and tools:
+Django- python framework used in the development of this project.
+Bootstrap- general layout and spacing requirements.
+ElephantSQL- production database.
+Cloudinary- storage of files and images
+Balsamiq -creation of the wireframes.
+LucidChart -design of the database schema.
+Django-Summernote -editor
+Font Awesome -icons.
+Chrome Dev Tools -development and testing responsiveness.
+Git- version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+GitHub- storage of project's code after being pushed from Git.
+Heroku- deployment of the app.
+
 # Deployment
 
+
 # Credits
+
 
 # Acknowledgments
