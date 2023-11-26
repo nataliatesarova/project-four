@@ -349,25 +349,30 @@ All tests passed
 
 Live Deployment: Find the application deployed on Heroku.
 
-ElephantSQL (PostgreSQL): Utilized for the database. Set up your own:
+## ElephantSQL (PostgreSQL) 
 
+Utilized for the database.
 Sign up using your GitHub account.
 Click "Create new instance".
 Give it a name.
 Choose the nearest region and data center.
 Access your database URL and insert it into your app as DATABASE_URL.
-Cloudinary API: Stores media assets online. To acquire your API key:
+
+## Cloudinary API
+
+Stores media assets online. To acquire your API key:
 Sign up and log in.
 Select "Programmable Media" as your primary interest.
 Access your API environment variable, typically named CLOUDINARY_URL. Insert your API key here.
-Heroku Deployment: Utilizes Heroku as a cloud-based platform for application building, running, and operating:
 
+## Heroku Deployment
+
+Utilizes Heroku as a cloud-based platform for application building, running, and operating:
 In your Heroku dashboard, click "New" and select "Create new app".
 Provide a unique app name and select your region.
 Upon app creation, access "Config Vars" to set environment variables, including SECRET_KEY (use any random secret key), PORT (set to 8000).
 
 Heroku Deployment Requirements:
-
 Files Needed: requirements.txt and Procfile.
 Install Project Requirements:
 Use pip3 install -r requirements.txt.
@@ -382,7 +387,23 @@ Manual Deployment Steps:
 Use heroku login -i in the terminal.
 Set the Heroku remote: heroku git:remote -a app_name, replacing 'app_name' with your app's name.
 
+## Forking the Repository
+
+Log in to GitHub or create an account.
+Go to <https://github.com/nataliatesarova/project-four>.
+Click "Fork" at the top-right of the repository.
+A copy will be created in your own repository.
+
+## Creating a Clone
+
+Visit <https://github.com/nataliatesarova/project-four>.
+Click the green "Code" button and choose "Clone by HTTPS".
+Copy the provided URL.
+In your terminal, navigate to your desired directory.
+Type 'git clone [copied URL]' and press enter to clone the repository locally.
+
 # Credits
+
 
 
 # Acknowledgments
