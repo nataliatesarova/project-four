@@ -347,6 +347,40 @@ All tests passed
 
 # Deployment
 
+Live Deployment: Find the application deployed on Heroku.
+
+ElephantSQL (PostgreSQL): Utilized for the database. Set up your own:
+
+Sign up using your GitHub account.
+Click "Create new instance".
+Give it a name.
+Choose the nearest region and data center.
+Access your database URL and insert it into your app as DATABASE_URL.
+Cloudinary API: Stores media assets online. To acquire your API key:
+Sign up and log in.
+Select "Programmable Media" as your primary interest.
+Access your API environment variable, typically named CLOUDINARY_URL. Insert your API key here.
+Heroku Deployment: Utilizes Heroku as a cloud-based platform for application building, running, and operating:
+
+In your Heroku dashboard, click "New" and select "Create new app".
+Provide a unique app name and select your region.
+Upon app creation, access "Config Vars" to set environment variables, including SECRET_KEY (use any random secret key), PORT (set to 8000).
+
+Heroku Deployment Requirements:
+
+Files Needed: requirements.txt and Procfile.
+Install Project Requirements:
+Use pip3 install -r requirements.txt.
+Update the requirements file with installed packages using pip3 freeze --local > requirements.txt.
+Create Procfile:
+Generate it with echo web: gunicorn app_name.wsgi > Procfile. Replace 'app_name' with your app's name.
+Heroku Site Deployment:
+
+Automatic Deployment:
+Enable automatic deployment in Heroku.
+Manual Deployment Steps:
+Use heroku login -i in the terminal.
+Set the Heroku remote: heroku git:remote -a app_name, replacing 'app_name' with your app's name.
 
 # Credits
 
