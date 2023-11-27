@@ -7,8 +7,9 @@ from django_bleach.forms import BleachField
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ['title', 'description', 'ingredients', 'method', 'featured_image', 'status']
-        
+        fields = ['title', 'description', 'ingredients',
+                  'method', 'featured_image', 'status']
+
     description = BleachField(
         allowed_tags=['p', 'br', 'b', 'i', 'u', 'ul', 'li'],
         allowed_attributes={'*': ['style']}
@@ -17,11 +18,12 @@ class RecipeForm(forms.ModelForm):
         allowed_tags=['p', 'br', 'b', 'i', 'u', 'ul', 'li'],
         allowed_attributes={'*': ['style']}
     )
-    
+
     method = BleachField(
         allowed_tags=['p', 'br', 'b', 'i', 'u', 'ul', 'li'],
         allowed_attributes={'*': ['style']}
     )
+
 
 class CommentForm(forms.ModelForm):
     class Meta:

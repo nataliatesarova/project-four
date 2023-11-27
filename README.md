@@ -126,42 +126,52 @@ Enable sharing of recipes directly via social media.
 ### Navigation bar
 
 The Navigation Bar is prominently positioned at the top of the page, with the navigation links aligned to the left side. When a user is logged in, certain links undergo changes; for instance, the Login transforms into Logout, "Register" link changes to "Add New Recipe," and a "MyProfile" link is added. For smaller screen sizes, a hamburger menu is utilized to display the navigation links.
+![Navigation bar](assets/pics/navbar.png)
 
 ### Homepage
 
 The homepage is accessible to all users, even without registration or logging in. It features recipe cards displaying a featured image, recipe title, author, and creation date. A "View More Details" button, allows all users to explore the recipes. The home and subsequent pages have the capacity to display a maximum of 9 cards.
+![Homepage](assets/pics/homepage.png)
 
 ### Recipe details
 
 Registered and logged in users are able to view, edit, comment and like recipes. Users not registered or logged in will only be able to view recipe details, without the ability to edit, comment or like.
+![Recipe details](assets/pics/recipe_details.png)
 
 ### Registered login
 
 During registration the user must complete all the required fields: username, first name, last name, email, password, and password confirmation. Login requires the entering of both the email and password fields. After logging in the user will be redirected to the main page with recipes.
+![Registration](assets/pics/register.png)
+![Login](assets/pics/login.png)
 
 ### Add new recipe
 
 The registered and logged in user will have the option to add a recipe by clicking on the ‘Add new recipe’ option on the navigation bar. The user must enter the fields for Title, Description, Ingredients and Method. If the user does not enter all off these fields and click the submission ‘Create Recipe’ button a ‘Please fill in this field’ prompt will appear. Submitting an image is optional. If no image is submitted a default tomato image will be displayed. The user can designate the recipe post as draft or published and the click the ‘Create Recipe’ button, which will return the user to the homepage with the appearance of a ‘Recipe created successfully’ notice. Draft posts allows the admin to plan publication date and help with editing before publication. If the user designates the recipe as published, admin must first approve it before the recipe appears to the public. The user can delete or edit their own recipe. If the delete button is clicked the user is prompted with the conirmation message 'Are you sure you want to delete this recipe?' and given option to proceed with deletion or cancel. If 'cancel' is selected the user is returned to the recipe edit page. If deletion is selected the user is returned to the homepage and presented with mesage 'Recipe name of recipe was deleted successfully'.
+![Add new recipe](assets/pics/addnewrecipe.png)
 
 ### User profile
 
 When the user logs in the 'My Profile' tab appears in the Navbar. On clicking 'My Profile' the profile detail page opens where the profile pic, name, username,user bio and user history can be viewed. User history shows when the profile was created and last edited.
 
 The profile can be edited with clicking of the action edit icon. It is not mandatory to fill in any fields on the profile, and if no profile pic is uploaded a default smiley face is displayed. The profile pic is displayed when a user published a comment.
+![User profile](assets/pics/profile_details.png)
 
 ### Log out
 
 On clicking 'Log Out' the user is redirected to the homepage where the recipes can be viewed, and with option to register and login.
+![Log out](assets/pics/logout.png)
 
 ### Log in
 
 On logging in the user is given the message 'Welcome, you are now logged in'
+![Log in](assets/pics/login.png)
 
 ### Comment on recipes
 
 On posting a comment the logged in user is presented with the message 'Your comment has been created successfully. It will be visible once the admin approves.'
 
 Once the comment has been checked and approved by the admin it will be visible.
+![Comment](assets/pics/comments.png)
 
 # Testing
 

@@ -38,12 +38,12 @@ def create_recipe(request):
             recipe.author = request.user
             recipe.save()
             messages.success(request, 'Recipe created successfully.')
-        
 
             # Redirect to the recipe detail page
             return redirect('recipes')
         else:
-            messages.error(request, 'Recipe creation failed. Make sure You have filled in all the fields.')
+            messages.error(
+                request, 'Recipe creation failed. Make sure You have filled in all the fields.')
 
     else:
         form = RecipeForm()
@@ -62,23 +62,25 @@ def recipe_detail(request, slug):
     total_pending_comments = 0
     is_logged_in = request.user.is_authenticated
     owner = False
-    
+
     if is_logged_in:
         if request.user == recipe.author:
             owner = True
 
         if request.method == 'POST':
             text = request.POST.get('comment_text')
-            Comment.objects.create(post=recipe, user=request.user, text=text, status='pending')
-            messages.success(request, 'Your comment has been created successfully. It will be visible once the admin approves.')
+            Comment.objects.create(
+                post=recipe, user=request.user, text=text, status='pending')
+            messages.success(
+                request, 'Your comment has been created successfully. It will be visible once the admin approves.')
             return redirect('recipe_detail', slug=slug)
 
         # Pending comments for the current user and recipe
-        pending_comments = Comment.objects.filter(post=recipe, user=request.user, status='pending')
-        total_pending_comments = pending_comments.count()  
+        pending_comments = Comment.objects.filter(
+            post=recipe, user=request.user, status='pending')
+        total_pending_comments = pending_comments.count()
 
-
-    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments, 'owner': owner, 'total_approved_comments': total_approved_comments, 'total_pending_comments': total_pending_comments })
+    return render(request, 'blog/recipe_detail.html', {'recipe': recipe, 'comments': comments, 'owner': owner, 'total_approved_comments': total_approved_comments, 'total_pending_comments': total_pending_comments})
 
 # Edit recipe
 
@@ -91,7 +93,8 @@ def EditRecipe(request, slug):
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Recipe {recipe.title} was updated successfully.')
+            messages.success(
+                request, f'Recipe {recipe.title} was updated successfully.')
             # Redirect to the recipe detail page
             return redirect('recipe_detail', slug=recipe.slug)
     else:
@@ -110,10 +113,11 @@ def delete_recipe(request, slug):
         if request.method == 'POST':
             # Delete the recipe
             recipe.delete()
-            messages.success(request, f'Recipe "{recipe.title}" was deleted successfully.')
+            messages.success(
+                request, f'Recipe "{recipe.title}" was deleted successfully.')
             # Redirect to home page
             return redirect('recipes')
-        
+
     else:
         return redirect('recipe_detail', slug=recipe.slug)
     return render(request, 'blog/delete_recipe.html', {'recipe': recipe})

@@ -9,7 +9,7 @@ class RecipeAdmin(SummernoteModelAdmin):
     summernote_fields = ('ingredients')
     list_filter = ('status', 'created_on')
     list_display = ('title', 'slug', 'status', 'created_on')
-    search_fields = ['title','description', 'ingredients']
+    search_fields = ['title', 'description', 'ingredients']
     actions = ['publish_post', 'unpublish_post']
 
     def publish_post(self, request, queryset):
@@ -39,5 +39,6 @@ class AdminComment(admin.ModelAdmin):
     def delete_comments(self, request, queryset):
         queryset.delete()
 
- # Register the Comment model with the AdminComment configuration
+
+# Register the Comment model with the AdminComment configuration
 admin.site.register(Comment, AdminComment)
