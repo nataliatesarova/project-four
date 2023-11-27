@@ -10,159 +10,224 @@
 <!-- block content -->
 {% block content %}
 <div class="container-fluid background-image">
-  <div class="row recipe_details">
+    <div class="row recipe_details">
     <!--Row-->
 
     <!-- Right card -->
-    <div class="col-md-8 col-sm-12 col-xs-12 col-lg-5 col-12">
-      <div class="card">
-        <div class="card-body m-1">
-          <h1 class="text-center">{{ recipe.title }}</h1>
-          <p>Authered By: {{ recipe.author.username }}</p>
-          <div class="image-container">
-            <img
-              src="{{ recipe.featured_image.url }}"
-              class="card-img-top"
-              alt="{{ recipe.title }}"
-            />
-          </div>
-          <!-- Display comments -->
-          <h6>Comments</h6>
-          {% if total_pending_comments %}
-          <p>
-            You have {{total_pending_comments}} Pending comments awaiting
-            Admin's approval.
-          </p>
-          {% endif %}
-          <div id="show-comments" class="show-comments">
-            <a href="#" id="toggle-comments">
-              <h6>Show ({{total_approved_comments}}) Comments</h6>
-            </a>
-          </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-5 col-12">
+        <div class="card">
+            <div class="card-body m-1 row">
+                <h1 class="text-center">{{ recipe.title }}</h1>
+                <p>Authered By:  {{ recipe.author.username }}</p>
+                <div class="image-container col-12 col-md-12 col-sm-12 col-xs-12">
+                    <img src="{{ recipe.featured_image.url }}" class="card-img-top" alt="{{ recipe.title }}" />
+                </div>
+                <!-- Display comments -->
+                <h6>Comments</h6>
+                {% if total_pending_comments %}
+                    <p>You have {{total_pending_comments}} Pending comments awaiting Admin's approval.</p>
+                {% endif %}
+                <div id="show-comments" class="show-comments">
+                    <a href="#" id="toggle-comments"> <h6>Show    ({{total_approved_comments}}) Comments </h6> </a>
+                </div>
 
-          <div id="comments-container" class="comments">
+                <div id="comments-container" class="comments">
+                    <!-- Approved Comments -->
+                    {% for comment in comments %}
+                        {% if comment.status == 'approved' %}
+                            <div class="comment">
+                                <p>
+                                    <img style="height: 2rem; border-radius: 0.8rem;" src="{{ comment.user.profile.profile_picture.url }}" class="comment-avatar" alt="User Avatar" />
+                                    {{ comment.user.username }}
+                                    <span style="font-size: small; float: right;">
+                                        {{ comment|format_comment_date:recipe|escape }}
+                                    </span>
+                                </p>
+                                <p>{{ comment.text }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                
+                    <!-- Pending Comments for the Current User -->
+                    {% for comment in pending_comments %}
+                        <div class="comment pending">
+                            <p>Pending</p>
+                            <p>
+                                <img style="height: 2rem; border-radius: 0.8rem;" src="{{ comment.user.profile.profile_picture.url }}" class="comment-avatar" alt="User Avatar" />
+                                {{ comment.user.username }}
+                                <span style="font-size: small; float: right;">
+                                    {{ comment|format_comment_date:recipe }}
+                                </span>
+                            </p>
+                            <p>{{ comment.text }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="user-actions">
+                        <!-- Comment form -->
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="comment_text"><h6>Your Comment</h6></label> 
+                                <textarea
+                                class="form-control"
+                                name="comment_text"
+                                id="comment_text"
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-3">Comment</button>
+                        </form>
+
+                        <!-- Like button -->
+                        <div class="actions" >
+                            <form method="post" action="{% url 'like_recipe' recipe.slug %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn "><i class="fa-solid fa-heart"> </i></button> <span class="likes">{{ recipe.total_likes }}  Likes</span>
+                            </form>
+
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if owner %}
+                <div>
+                    <!-- Edit Bitton --> 
+                    <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-outline-info m-3"
+                    ><i class="fa-sharp fa-solid fa-file-pen"></i></a
+                    >
+                    <!-- Delete Bitton --> 
+                    <a href="{% url 'delete_recipe' recipe.slug%}" class="btn btn-outline-danger m-3"
+                    ><i class="fa-sharp fa-solid fa-trash"></i></a
+                    >
+                </div>
+                {% endif %}
+
+        <div id="comments-container" class="comments">
             <!-- Approved Comments -->
             {% for comment in comments %} {% if comment.status == 'approved' %}
             <div class="comment">
-              <p>
+                <p>
                 <img
-                  style="height: 2rem; border-radius: 0.8rem"
-                  src="{{ comment.user.profile.profile_picture.url }}"
-                  class="comment-avatar"
-                  alt="User Avatar"
+                    style="height: 2rem; border-radius: 0.8rem"
+                    src="{{ comment.user.profile.profile_picture.url }}"
+                    class="comment-avatar"
+                    alt="User Avatar"
                 />
                 {{ comment.user.username }}
                 <span style="font-size: small; float: right">
-                  {{ comment|format_comment_date:recipe|escape }}
+                    {{ comment|format_comment_date:recipe|escape }}
                 </span>
-              </p>
-              <p>{{ comment.text }}</p>
+                </p>
+                <p>{{ comment.text }}</p>
             </div>
             {% endif %} {% endfor %}
 
             <!-- Pending Comments for the Current User -->
             {% for comment in pending_comments %}
             <div class="comment pending">
-              <p>Pending</p>
-              <p>
-                <img
-                  style="height: 2rem; border-radius: 0.8rem"
-                  src="{{ comment.user.profile.profile_picture.url }}"
-                  class="comment-avatar"
-                  alt="User Avatar"
-                />
-                {{ comment.user.username }}
-                <span style="font-size: small; float: right">
-                  {{ comment|format_comment_date:recipe }}
-                </span>
-              </p>
-              <p>{{ comment.text }}</p>
+                <p>Pending</p>
+                <p>
+                    <img
+                    style="height: 2rem; border-radius: 0.8rem"
+                    src="{{ comment.user.profile.profile_picture.url }}"
+                    class="comment-avatar"
+                    alt="User Avatar"
+                    />
+                    {{ comment.user.username }}
+                    <span style="font-size: small; float: right">
+                    {{ comment|format_comment_date:recipe }}
+                    </span>
+                </p>
+                <p>{{ comment.text }}</p>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-          </div>
 
-          {% if user.is_authenticated %}
-          <div class="user-actions">
+            {% if user.is_authenticated %}
+            <div class="user-actions">
             <!-- Comment form -->
             <form method="post">
-              {% csrf_token %}
-              <div class="form-group">
-                <h6>Your Comment</h6>
-                <label for="comment_text"></label>
-                <textarea
-                  class="form-control"
-                  name="comment_text"
-                  id="comment_text"
-                ></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary mt-3">
-                Comment
-              </button>
-            </form>
-
-            <!-- Like button -->
-            <div class="actions">
-              <form method="post" action="{% url 'like_recipe' recipe.slug %}">
                 {% csrf_token %}
-                <button type="submit" class="btn">
-                  <i class="fa-solid fa-heart"> </i>
+                <div class="form-group">
+                    <h6>Your Comment</h6>
+                    <label for="comment_text"></label>
+                    <textarea
+                    class="form-control"
+                    name="comment_text"
+                    id="comment_text"
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">
+                    Comment
                 </button>
-                <span class="likes">{{ recipe.total_likes }} Likes</span>
-              </form>
+                </form>
+
+                <!-- Like button -->
+                <div class="actions">
+                <form method="post" action="{% url 'like_recipe' recipe.slug %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                    <i class="fa-solid fa-heart"> </i>
+                    </button>
+                    <span class="likes">{{ recipe.total_likes }} Likes</span>
+                </form>
+                </div>
             </div>
-          </div>
-          {% endif %} {% if owner %}
-          <div>
-            <!-- Edit Button -->
-            <a
-              href="{% url 'edit_recipe' recipe.slug %}"
-              class="btn btn-outline-info m-3"
-              ><i class="fa-sharp fa-solid fa-file-pen"></i
-            ></a>
-            <!-- Delete Button -->
-            <a
-              href="{% url 'delete_recipe' recipe.slug%}"
-              class="btn btn-outline-danger m-3"
-              ><i class="fa-sharp fa-solid fa-trash"></i
-            ></a>
-          </div>
-          {% endif %}
+            {% endif %} {% if owner %}
+            <div>
+                <!-- Edit Button -->
+                <a
+                href="{% url 'edit_recipe' recipe.slug %}"
+                class="btn btn-outline-info m-3"
+                ><i class="fa-sharp fa-solid fa-file-pen"></i
+                ></a>
+                <!-- Delete Button -->
+                <a
+                href="{% url 'delete_recipe' recipe.slug%}"
+                class="btn btn-outline-danger m-3"
+                ><i class="fa-sharp fa-solid fa-trash"></i
+                ></a>
+            </div>
+            {% endif %}
+            </div>
         </div>
-      </div>
+        </div>
+
+        <!-- Right Cards Container -->
+        <div class="col-md-12 col-sm-12 col-12 col-lg-7 col-xl-4 right-cards">
+        <div class="scrollable-container">
+            <!-- Card 2 -->
+            <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Description</h5>
+                <p class="card-text">{{recipe.description|linebreaks}}</p>
+            </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Ingredients</h5>
+                <p class="card-text">{{recipe.ingredients|linebreaks}}</p>
+            </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Method</h5>
+                <p class="card-text">{{recipe.method|linebreaks}}</p>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
-
-    <!-- Right Cards Container -->
-    <div class="col-md-12 col-sm-12 col-12 col-lg-7 col-xl-4 right-cards">
-      <div class="scrollable-container">
-        <!-- Card 2 -->
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Description</h5>
-            <p class="card-text">{{recipe.description|linebreaks}}</p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Ingredients</h5>
-            <p class="card-text">{{recipe.ingredients|linebreaks}}</p>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Method</h5>
-            <p class="card-text">{{recipe.method|linebreaks}}</p>
-          </div>
-        </div>
-      </div>
+    <!-- row -->
     </div>
-  </div>
-  <!-- row -->
-</div>
 
 <!-- Toggle Comments Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
