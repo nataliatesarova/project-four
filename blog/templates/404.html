@@ -3,10 +3,14 @@
 {% block content %}
 <div class="container mt-5">
     <div class="row">
-    <div class="col-md-6 offset-md-3 text-center">
-        <h1 class="display-4">404 - Page Not Found</h1>
-        <p class="lead">The requested page could not be found.</p>
-        <p><a href="{% url 'recipes' %}" class="btn btn-primary">Go to Home</a></p>
+        <h1 class="align-start display-4 m-3" >Oops! </h1>
+        <h2 class="align-start display-6 m-3">Seems like you ran into the wrong address. <br>
+            Check that you have typed the correct path</h2>
+    <div class="col-md-6 offset-md-3 ">
+
+        <h5 class="display-4 text-center my-5">404 - Page Not Found</h5>
+        <!-- <p class="lead align-start">The requested page could not be found.</p> -->
+        <p><a href="{% url 'recipes' %}" class="align-start btn btn-primary my-3">Return to Home Page</a></p>
     </div>
     </div>
 </div>
