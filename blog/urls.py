@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+
 urlpatterns = [
     path('', views.RecipeList, name='recipes'),
     # Create recipe
@@ -16,3 +17,4 @@ urlpatterns = [
     # Likes
     path('recipes/<str:slug>/like/', views.like_recipe, name='like_recipe'),
 ]
+

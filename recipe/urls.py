@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from blog.views import custom_404
+from django.conf.urls import handler404
+from django.conf import settings
+
 
 
 # project url routes
@@ -26,4 +30,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
 ]
-handler404 = 'blog.views.custom_404'
+if settings.DEBUG == False:
+    urlpatterns += [
+    path('404/', custom_404),
+]
+else:
+    handler404 = 'blog.views.custom_404'
