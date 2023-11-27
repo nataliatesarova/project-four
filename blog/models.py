@@ -17,8 +17,7 @@ class Recipe(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField()
     ingredients = models.TextField()
-    featured_image = CloudinaryField(
-        'feature_image', default='https://res.cloudinary.com/dxtdvo8ix/image/upload/v1698401021/nc6mwhbwix6kpzfcix99.jpg')
+    featured_image = CloudinaryField('featured_image', default='https://res.cloudinary.com/dxtdvo8ix/image/upload/v1698401021/nc6mwhbwix6kpzfcix99.jpg')
     method = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
