@@ -30,10 +30,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['localhost',
-                 '*',
-                 '8014-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
-                 '8000-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
-                 'recipeblog-e0d016298fa8.herokuapp.com']
+                '*',
+                '8014-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
+                '8000-nataliatesarova-project-5tifb7lwuz.us2.codeanyapp.com',
+                'recipeblog-e0d016298fa8.herokuapp.com']
 
 
 # Application definition
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.debug.DebugMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -162,7 +163,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATIC_FILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
