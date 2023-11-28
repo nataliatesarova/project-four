@@ -1,6 +1,10 @@
+/* profile css */
+/* navigation links */
 a{
     text-decoration: none;
 }
+
+/* edit icon */
 .fa-user-pen{
     color: rgb(0, 0, 112);
     background-color: white;

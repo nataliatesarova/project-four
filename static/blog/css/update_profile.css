@@ -1,3 +1,4 @@
+/* update profile css */
 .prof-update{
     max-width: 100%;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
@@ -8,9 +9,11 @@ textarea, input, label{
     max-width: 100%;
     display: block;
 }
+
 .row{
     max-width: 100%;
 }
+
 label{
     font-weight: 600;
     color: black;

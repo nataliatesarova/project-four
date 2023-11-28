@@ -1,4 +1,4 @@
-
+// comments toggle
 document.addEventListener("DOMContentLoaded", function () {
     // Initially hide the comments container
     var commentsContainer = document.getElementById("comments-container");

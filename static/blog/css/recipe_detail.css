@@ -16,6 +16,7 @@ h1{
     border-bottom: solid black 4px;
 }
 
+/* icons */
 .fa-file-pen{
     color: rgb(0, 0, 86);
 }
@@ -23,7 +24,6 @@ h1{
     color: rgb(45, 4, 4);
 }
 .container-fluid.background-image {
-    /* background: url('your-background-image.jpg') center/cover no-repeat; */
     color: #333;
     padding: 1.25rem; 
     margin-top: 1.25rem; 
