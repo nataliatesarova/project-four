@@ -59,17 +59,9 @@ Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of 
 
 ## Epics and user stories
 
-The following user stories (by epic) were completed. The MoSCoW prioritization was used to categorize the EPIC and user story tasks into Must Have, Should Have, Could Have, and Won't Have. Must Haves are critical, Should Haves are important, Could Haves are desirable, and Won't Haves are excluded for now. It helps focus on crucial tasks first, ensuring project success while allowing flexibility for less critical items.
+The following user stories (by EPIC) were completed. The MoSCoW prioritization was used to categorize the user story tasks into Must Have, Should Have, Could Have, and Won't Have. Must Haves are critical, Should Haves are important, Could Haves are desirable, and Won't Haves are excluded for now. It helps focus on crucial tasks first, ensuring project success while allowing flexibility for less critical items.
 
-### User Authentication and Profiles [#1] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39537085)
-
-### Recipe management [#2] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39569106)
-
-### Interaction with recipes [#3] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39571127)
-
-### Admin panel and content management [#4] (https://github.com/users/nataliatesarova/projects/6/views/1?pane=issue&itemId=39536019)
-
-### User Authentication and Profiles
+### Epic 1: User Authentication and Profiles
 
 As a new user I can complete a registration form with fields for username, name, email and password so that I can access the site to post recipes, comments and likes.`(MUST HAVE)`
 
@@ -77,7 +69,7 @@ As a registered user I can securely log in using my email and password so that I
 
 As a registered user I can access my profile page for viewing and editing so that I can personalize my profile information.`(COULD HAVE)`
 
-### Recipe management
+### Epic 2: Recipe management
 
 As a registered user I can create new recipes by providing a title, a list of ingredients, description, detailed method, and images so that I can actively participate in a cooking and recipe-sharing community, access a convenient personal recipe archive, express my culinary creativity and receive feedback and engagement from others.`(MUST HAVE)`
 
@@ -91,13 +83,13 @@ As any user I can click on a recipe to access its complete details, which encomp
 
 As a user I can view a maximum of 9 recipes per page and have the ability to navigate between pages so that I can conveniently browse recipes.`(SHOULD HAVE)`
 
-### Interaction with recipes
+### Epic 3: Interaction with recipes
 
 As a logged-in user I can like a recipe and see number of likes so that I can personalize my recipe collection, engage with others, discover popular dishes, and enhance the overall experience on the platform by expressing preferences and interests in cooking.`(SHOULD HAVE)`
 
 As a registered user I can post comments on recipes so that i can actively participate in the culinary community, share expertise and improve recipes.`(SHOULD HAVE)`
 
-### Admin panel and content management
+### Epic 4: Admin panel and content management
 
 As a superuser (admin) I can securely log in to the admin panel using my admin credentials so that site administration can be performed. `(MUST HAVE)`
 
@@ -113,13 +105,13 @@ As a superuser I can view the likes for recipes so that I can track trends and m
 
 ## Future features
 
-Allow the user to save a draft version of a recipe to edit and complete at a later time.
-Bio to be available for all registered users to view
-Recipe Search and Filters: Allow users to search for recipes using keywords, ingredients, cuisine, and dietary preferences (e.g. gluten free, vegan)
-Recipe Categories: Categorize recipes into sections such as breakfast, lunch, dinner, desserts.
-Add difficulty level, serving size, nutritional and calorific information.
-Newsletter Subscription: Provide a subscription option for users to receive regular updates on new recipes, cooking tips, and the latest blog updates.
-Enable sharing of recipes directly via social media.
+-Allow the user to save a draft version of a recipe to edit and complete at a later time.
+-Bio to be available for all registered users to view
+-Recipe Search and Filters to allow users to search for recipes using keywords, ingredients, cuisine, and dietary preferences (e.g. gluten free, vegan)
+-Recipe Categories: Categorize recipes into sections such as breakfast, lunch, dinner, desserts.
+-Difficulty level, serving size, nutritional and calorific information.
+-Newsletter Subscription option will allow users to receive regular updates on new recipes, cooking tips, and the latest blog updates.
+-Enable sharing of recipes directly via social media.
 
 ## Features
 
@@ -181,8 +173,7 @@ Once the comment has been checked and approved by the admin it will be visible.
 # Testing
 ## Validator
 
-HTML: No errors were found when passing through the W3C validator at the final check but info was found:
-Trailing slash on void elements has no effect and interacts badly with unquoted attribute values. Unfortunately, i was not able to get rid off this info.
+HTML: No errors were found when passing through the W3C validator at the final check. Info statement was encoutered: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values. This issue was not able to be removed however it has no bearing on the working of the code.
 ![W3C validator](assets/pics/html_validator.png)
 
 
