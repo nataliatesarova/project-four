@@ -167,7 +167,7 @@ Once the comment has been checked and approved by the admin it will be visible.
 
 
 ### Footer
-
+The footer contains direct links to three social media sites (Facebook, Instagram and X,formally known as Twitter).
 
 
 # Testing
