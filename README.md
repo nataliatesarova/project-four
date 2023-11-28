@@ -185,14 +185,18 @@ HTML: No errors were found when passing through the W3C validator at the final c
 Trailing slash on void elements has no effect and interacts badly with unquoted attribute values. Unfortunately, i was not able to get rid off this info.
 ![W3C validator](assets/pics/html_validator.png)
 
+
 CSS: No errors were found when passing through the Jigsaw validator at the final check. 
 ![Jigsaw validator](assets/pics/validator_css.png)
+
 
 Code Institute Python Linter: was used for validation to ensure no Python code errors.
 ![Python Linter](assets/pics/python_linter.png)
 
+
 JShint validator: was used for validation to ensure no JavaScript errors.
 ![JShint validator](assets/pics/javascript_validation.png) 
+
 
 ## Testing of user stories
 
