@@ -29,10 +29,15 @@ The database schemas were designed using [Lucid App](https://lucid.app/) These s
 #### Main Color Schema
 
 Navigation bar grey: --bs-tertiary-bg-rgb
+
 Main background white: --bs-body-bg
+
 Background recipe card image grey: #f0f0f0
+
 Button blue: #007bff
+
 Footer background black: --bs-dark-rgb
+
 Login card dark grey: rgb(168, 168, 186)
 
 ## UX
@@ -105,13 +110,19 @@ As a superuser I can view the likes for recipes so that I can track trends and m
 
 ## Future features
 
--Allow the user to save a draft version of a recipe to edit and complete at a later time.
--Bio to be available for all registered users to view
--Recipe Search and Filters to allow users to search for recipes using keywords, ingredients, cuisine, and dietary preferences (e.g. gluten free, vegan)
--Recipe Categories: Categorize recipes into sections such as breakfast, lunch, dinner, desserts.
--Difficulty level, serving size, nutritional and calorific information.
--Newsletter Subscription option will allow users to receive regular updates on new recipes, cooking tips, and the latest blog updates.
--Enable sharing of recipes directly via social media.
+Allow the user to save a draft version of a recipe to edit and complete at a later time.
+
+Bio to be available for all registered users to view.
+
+Recipe Search and Filters to allow users to search for recipes using keywords, ingredients, cuisine, and dietary preferences (e.g. gluten free, vegan).
+
+Categorize recipes into sections such as breakfast, lunch, dinner, desserts.
+
+Difficulty level, serving size, nutritional and calorific information.
+
+Newsletter Subscription will allow users to receive regular updates on new recipes, cooking tips, and the latest blog updates.
+
+Enable sharing of recipe blog posts directly via social media.
 
 ## Features
 
@@ -341,6 +352,8 @@ Ensure accuracy in tracking and displaying popular recipes based on likes.
 All tests passed
 
 # Bugs
+
+Incorrectly placed static files caused the application to fail in loading essential CSS. However, after reorganizing the static files, the deployment on Heroku succeeded. Apart from a few spelling errors that caused issues there were no other significant bugs.
 
 # Technologies
 
