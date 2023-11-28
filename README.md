@@ -106,7 +106,7 @@ As a superuser I can edit or delete any recipe on the site, regardless of the us
 
 As a superuser I can review, approve and moderate comments across the entire site so that i can block, edit and delete inappropriate comments so that I can properly moderate the site. `(SHOULD HAVE)`
 
-As a superuser I can view the likes for recipes so that I can track trends and most popular recipes. `(SHOULD HAVE)` 
+As a superuser I can view the likes for recipes so that I can track trends and most popular recipes. `(SHOULD HAVE)`
 
 ## Future features
 
@@ -176,29 +176,26 @@ On posting a comment the logged in user is presented with the message 'Your comm
 Once the comment has been checked and approved by the admin it will be visible.
 ![Comment](assets/pics/comments.png)
 
-
 ### Footer
-The footer contains direct links to three social media sites (Facebook, Instagram and X,formally known as Twitter).
 
+The footer contains direct links to three social media sites (Facebook, Instagram and X,formally known as Twitter).
+![Footer](assets/pics/footer.png)
 
 # Testing
+
 ## Validator
 
 HTML: No errors were found when passing through the W3C validator at the final check. Info statement was encoutered: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values. This issue was not able to be removed however it has no bearing on the working of the code.
 ![W3C validator](assets/pics/html_validator.png)
 
-
-CSS: No errors were found when passing through the Jigsaw validator at the final check. 
+CSS: No errors were found when passing through the Jigsaw validator at the final check.
 ![Jigsaw validator](assets/pics/validator_css.png)
-
 
 Code Institute Python Linter: was used for validation to ensure no Python code errors.
 ![Python Linter](assets/pics/python_linter.png)
 
-
 JShint validator: was used for validation to ensure no JavaScript errors.
-![JShint validator](assets/pics/javascript_validation.png) 
-
+![JShint validator](assets/pics/javascript_validation.png)
 
 ## Testing of user stories
 
@@ -383,7 +380,7 @@ Incorrectly placed static files caused the application to fail in loading essent
 
 Live Deployment: Find the application deployed on Heroku.
 
-## ElephantSQL (PostgreSQL) 
+## ElephantSQL (PostgreSQL)
 
 Utilized for the database.
 Sign up using your GitHub account.
