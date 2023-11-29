@@ -142,16 +142,23 @@ The homepage is accessible to all users, even without registration or logging in
 Registered and logged in users are able to view, edit, comment and like recipes. Users not registered or logged in will only be able to view recipe details, without the ability to edit, comment or like.
 ![Recipe details](assets/pics/recipe_details.png)
 
-### Registered login
+### Registration and login
 
-During registration the user must complete all the required fields: username, first name, last name, email, password, and password confirmation. Login requires the entering of both the email and password fields. After logging in the user will be redirected to the main page with recipes.
+During registration the user must complete all the required fields: username, first name, last name, email, password, and password confirmation. The user is the presented with the message 'Registration successful. You are now logged in'.
+
+Login requires the entering of both the email and password fields. After logging in the user will be redirected to the main page with recipes, and presented with message 'Welcome, you are now logged in'.
 ![Registration](assets/pics/register.png)
+![Registration message](assets/pics/registrationmessage.png)
 ![Login](assets/pics/login.png)
+![Welcome message](assets/pics/welcomemessage.png)
 
 ### Add new recipe
 
 The registered and logged in user will have the option to add a recipe by clicking on the 'Add new recipe' option on the navigation bar. The user must enter the fields for Title, Description, Ingredients and Method. If the user does not enter all off these fields and click the submission 'Create Recipe' button a 'Please fill in this field' prompt will appear. Submitting an image is optional. If no image is submitted a default tomato image will be displayed. The user can designate the recipe post as draft or published and then click the 'Create Recipe' button, which will return the user to the homepage with the appearance of a 'Recipe created successfully' notice. Draft posts allows the admin to plan publication date and help with editing before publication. If the user designates the recipe as published, admin must first approve it before the recipe appears to the public. The user can delete or edit their own recipe. If the delete button is clicked the user is prompted with the confirmation message 'Are you sure you want to delete this recipe?' and given the option to proceed with deletion or cancel. If 'cancel' is selected the user is returned to the recipe edit page. If deletion is selected the user is returned to the homepage and presented with mesage 'Recipe -name of recipe- was deleted successfully'.
 ![Add new recipe](assets/pics/addnewrecipe.png)
+![Recipe created](assets/pics/recipecreated.png)
+![Recipe deletion confirmation](assets/pics/confirmationofdeletion.png)
+![Recipe deletion](assets/pics/deletedrecipe.png)
 
 ### User profile
 
@@ -176,6 +183,7 @@ On posting a comment the logged in user is presented with the message 'Your comm
 
 Once the comment has been checked and approved by the admin it will be visible.
 ![Comment](assets/pics/comments.png)
+![Comment message](assets/pics/commentmessage.png)
 
 ### Footer
 
