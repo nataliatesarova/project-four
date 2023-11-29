@@ -5,8 +5,8 @@
 HomeChef, a web platform crafted with Django using Python, JavaScript, CSS/Bootstrap, and HTML, is a celebration of heart warming home-cooked meals.
 Tailored for home cooks around the globe, this website provides a virtual haven for users passionate about sharing their culinary creations. Whether you're a seasoned home chef or an enthusiastic cook, HomeChef empowers you to create and share your favorite home-cooked recipes.
 HomeChef  was created as the fourth project for the Code Institute Diploma in Software Development. The site features include user authentication and full CRUD functionality.
-Users are given the ability to elevate their dishes with appealing photos, share their cooking through visual elements, and gives the option to like and comment on the recipes.
-Link to the live site - [HomeChef](https://recipeblog-e0d016298fa8.herokuapp.com/)
+Users are given the ability to elevate their dishes with appealing photos, share their cooking with others and like and comment on the recipes.
+Link to the live site - [HomeChef](https://recipeblog-e0d016298fa8.herokuapp.com/).
 
 ## Design
 
@@ -24,9 +24,9 @@ Link to the live site - [HomeChef](https://recipeblog-e0d016298fa8.herokuapp.com
 ### Database Schema
 
 ![Database Schema Diagram](assets/databaseschema.png)
-The database schemas were designed using [Lucid App](https://lucid.app/) These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. Recipe comprises four models: Recipe, Profile, User and Comment.
+The database schemas were designed using [Lucid App](https://lucid.app/). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. Recipe comprises four models: Recipe, Profile, User and Comment.
 
-#### Main Color Schema
+#### Main Color Scheme
 
 Navigation bar grey: --bs-tertiary-bg-rgb
 
@@ -48,7 +48,7 @@ Who We're For:
 
 People who love cooking and want to share their favorite recipes.
 Folks who want to learn more about cooking and try new things in the kitchen.
-Those who want ideas for yummy and exciting dishes to make.
+Those who want ideas for how to make delicious and exciting dishes.
 
 What We Aim For:
 
@@ -58,14 +58,14 @@ Making a cozy spot where food lovers can find inspiration with amazing recipes.
 
 ## Agile Development
 
-The project applied Agile Methodology on GitHub for planning and execution. User Stories were established as GitHub issues, outlining their purposes distinctly. Each story contained specific acceptance criteria and tasks, categorized using colored labels such as 'must-have', 'should-have', 'could-have', or 'won't-have' to manage tasks during iterations.
+The project applied Agile Methodology on GitHub for planning and execution. User Stories were established as GitHub issues clearly outlining their purposes.
 
 Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of these stories was also assigned story points based on their complexity. The specifics of each epic, along with their corresponding user stories, can be located within the project's kanban board
 [here](https://github.com/users/nataliatesarova/projects/6/views/1).
 
 ## Epics and user stories
 
-The following user stories (by EPIC) were completed. The MoSCoW prioritization was used to categorize the user story tasks into Must Have, Should Have, Could Have, and Won't Have. Must Haves are critical, Should Haves are important, Could Haves are desirable, and Won't Haves are excluded for now. It helps focus on crucial tasks first, ensuring project success while allowing flexibility for less critical items.
+The following Epic and user stories were completed. The MoSCoW prioritization was used to categorize the user story tasks into Must Have, Should Have, Could Have, and Won't Have. Must Haves are critical, Should Haves are important, Could Haves are desirable, and Won't Haves are excluded for now. This categorization helps focus on crucial tasks first, ensuring project success while allowing flexibility for less critical items.
 
 ### Epic 1: User Authentication and Profiles
 
@@ -77,7 +77,7 @@ As a registered user I can access my profile page for viewing and editing so tha
 
 ### Epic 2: Recipe management
 
-As a registered user I can create new recipes by providing a title, a list of ingredients, description, detailed method, and images so that I can actively participate in a cooking and recipe-sharing community, access a convenient personal recipe archive, express my culinary creativity and receive feedback and engagement from others.`(MUST HAVE)`
+As a logged-in user I can create new recipes by providing a title, a list of ingredients, description, detailed method, and images so that I can actively participate in a cooking and recipe-sharing community, access a convenient personal recipe archive, express my culinary creativity and receive feedback and engagement from others.`(MUST HAVE)`
 
 As a logged-in user I can edit any recipe that I've created including modifying the title, ingredients, description, method, and associated images so that I can maintain and improve the recipes, resulting in better cooking outcomes and increased engagement with the platform.`(MUST HAVE)`
 
@@ -85,7 +85,7 @@ As a logged-in user I can delete recipes I've created when necessary so that I c
 
 As any user I can browse recipes available on the site whether logged in or not so that all can explore, discover, and engage with a variety of recipes, providing inspiration and a sense of community around cooking.`(MUST HAVE)`
 
-As any user I can click on a recipe to access its complete details, which encompass information about ingredients, description, cooking instructions, images, comments, and likes so that i can access detailed recipe information. `(MUST HAVE)`
+As any user I can click on a recipe to access its complete details, which encompass information about ingredients, description, cooking instructions, images, comments, and likes so that I can access detailed recipe information. `(MUST HAVE)`
 
 As a user I can view a maximum of 9 recipes per page and have the ability to navigate between pages so that I can conveniently browse recipes.`(SHOULD HAVE)`
 
@@ -93,7 +93,7 @@ As a user I can view a maximum of 9 recipes per page and have the ability to nav
 
 As a logged-in user I can like a recipe and see number of likes so that I can personalize my recipe collection, engage with others, discover popular dishes, and enhance the overall experience on the platform by expressing preferences and interests in cooking.`(SHOULD HAVE)`
 
-As a registered user I can post comments on recipes so that i can actively participate in the culinary community, share expertise and improve recipes.`(SHOULD HAVE)`
+As a registered user I can post comments on recipes so that I can actively participate in the culinary community, share expertise and improve recipes.`(SHOULD HAVE)`
 
 ### Epic 4: Admin panel and content management
 
@@ -115,13 +115,13 @@ Allow the user to save a draft version of a recipe to edit and complete at a lat
 
 Bio to be available for all registered users to view.
 
-Recipe Search and Filters to allow users to search for recipes using keywords, ingredients, cuisine, and dietary preferences (e.g. gluten free, vegan).
+Categorize recipes into sections such as meal type (e.g.breakfast), seasonal meals (e.g. Christmas), and allergy free options.
 
-Categorize recipes into sections such as breakfast, lunch, dinner, desserts.
+Add difficulty level, serving size, nutritional and calorific information.
 
-Difficulty level, serving size, nutritional and calorific information.
+Allow users to search for recipes using keywords, ingredients, cuisine, and dietary preferences (e.g. gluten free, vegan).
 
-Newsletter Subscription will allow users to receive regular updates on new recipes, cooking tips, and the latest blog updates.
+Newsletter subscription to allow users to receive regular updates on new recipes, cooking tips, and the latest blog updates.
 
 Enable sharing of recipe blog posts directly via social media.
 
@@ -129,12 +129,12 @@ Enable sharing of recipe blog posts directly via social media.
 
 ### Navigation bar
 
-The Navigation Bar is prominently positioned at the top of the page, with the navigation links aligned to the left side. When a user is logged in, certain links undergo changes; for instance, the Login transforms into Logout, "Register" link changes to "Add New Recipe," and a "MyProfile" link is added. For smaller screen sizes, a hamburger menu is utilized to display the navigation links.
+The Navigation Bar is prominently positioned at the top of the page, with the navigation links aligned to the left side. When a user is loggged in, crtain links undergo changes: the Login transforms into 'Logout', 'Register' link changes to 'Add New Recipe', and a 'My Profile' link is added. For smaller screen sizes, a hamburger menu is utilized to display the navigation links.
 ![Navigation bar](assets/pics/navbar.png)
 
 ### Homepage
 
-The homepage is accessible to all users, even without registration or logging in. It features recipe cards displaying a featured image, recipe title, author, and creation date. A "View More Details" button, allows all users to explore the recipes. The home and subsequent pages have the capacity to display a maximum of 9 cards.
+The homepage is accessible to all users, even without registration or logging in. It features recipe cards displaying a featured image, recipe title, author, and creation date. A 'View More Details' button, allows all users to explore the recipes. The home and subsequent pages have the capacity to display a maximum of 9 cards.
 ![Homepage](assets/pics/homepage.png)
 
 ### Recipe details
@@ -150,7 +150,7 @@ During registration the user must complete all the required fields: username, fi
 
 ### Add new recipe
 
-The registered and logged in user will have the option to add a recipe by clicking on the ‘Add new recipe’ option on the navigation bar. The user must enter the fields for Title, Description, Ingredients and Method. If the user does not enter all off these fields and click the submission ‘Create Recipe’ button a ‘Please fill in this field’ prompt will appear. Submitting an image is optional. If no image is submitted a default tomato image will be displayed. The user can designate the recipe post as draft or published and the click the ‘Create Recipe’ button, which will return the user to the homepage with the appearance of a ‘Recipe created successfully’ notice. Draft posts allows the admin to plan publication date and help with editing before publication. If the user designates the recipe as published, admin must first approve it before the recipe appears to the public. The user can delete or edit their own recipe. If the delete button is clicked the user is prompted with the conirmation message 'Are you sure you want to delete this recipe?' and given option to proceed with deletion or cancel. If 'cancel' is selected the user is returned to the recipe edit page. If deletion is selected the user is returned to the homepage and presented with mesage 'Recipe name of recipe was deleted successfully'.
+The registered and logged in user will have the option to add a recipe by clicking on the 'Add new recipe' option on the navigation bar. The user must enter the fields for Title, Description, Ingredients and Method. If the user does not enter all off these fields and click the submission 'Create Recipe' button a 'Please fill in this field' prompt will appear. Submitting an image is optional. If no image is submitted a default tomato image will be displayed. The user can designate the recipe post as draft or published and then click the 'Create Recipe' button, which will return the user to the homepage with the appearance of a 'Recipe created successfully' notice. Draft posts allows the admin to plan publication date and help with editing before publication. If the user designates the recipe as published, admin must first approve it before the recipe appears to the public. The user can delete or edit their own recipe. If the delete button is clicked the user is prompted with the confirmation message 'Are you sure you want to delete this recipe?' and given the option to proceed with deletion or cancel. If 'cancel' is selected the user is returned to the recipe edit page. If deletion is selected the user is returned to the homepage and presented with mesage 'Recipe -name of recipe- was deleted successfully'.
 ![Add new recipe](assets/pics/addnewrecipe.png)
 
 ### User profile
@@ -400,7 +400,7 @@ Access your API environment variable, typically named CLOUDINARY_URL. Insert you
 ## Heroku Deployment
 
 Utilizes Heroku as a cloud-based platform for application building, running, and operating:
-In your Heroku dashboard, click "New" and select "Create new app".
+In the Heroku dashboard, click "New" and select "Create new app".
 Provide a unique app name and select your region.
 Upon app creation, access "Config Vars" to set environment variables, including SECRET_KEY (use any random secret key), PORT (set to 8000).
 
