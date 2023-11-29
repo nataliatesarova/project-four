@@ -60,7 +60,8 @@ Making a cozy spot where food lovers can find inspiration with amazing recipes.
 
 The project applied Agile Methodology on GitHub for planning and execution. User Stories were established as GitHub issues, outlining their purposes distinctly. Each story contained specific acceptance criteria and tasks, categorized using colored labels such as 'must-have', 'should-have', 'could-have', or 'won't-have' to manage tasks during iterations.
 
-Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of these stories was also assigned story points based on their complexity.
+Additionally, 4 Epics were initiated and expanded into 20 User Stories. Each of these stories was also assigned story points based on their complexity. The specifics of each epic, along with their corresponding user stories, can be located within the project's kanban board
+[here](https://github.com/users/nataliatesarova/projects/6/views/1).
 
 ## Epics and user stories
 
