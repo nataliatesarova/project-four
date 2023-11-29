@@ -137,6 +137,11 @@ The Navigation Bar is prominently positioned at the top of the page, with the na
 The homepage is accessible to all users, even without registration or logging in. It features recipe cards displaying a featured image, recipe title, author, and creation date. A 'View More Details' button, allows all users to explore the recipes. The home and subsequent pages have the capacity to display a maximum of 9 cards.
 ![Homepage](assets/pics/homepage.png)
 
+### Footer
+
+The footer contains direct links to three social media sites (Facebook, Instagram and X,formally known as Twitter).
+![Footer](assets/pics/footer.png)
+
 ### Recipe details
 
 Registered and logged in users are able to view, edit, comment and like recipes. Users not registered or logged in will only be able to view recipe details, without the ability to edit, comment or like.
@@ -160,6 +165,14 @@ The registered and logged in user will have the option to add a recipe by clicki
 ![Recipe deletion confirmation](assets/pics/confirmationofdeletion.png)
 ![Recipe deletion](assets/pics/deletedrecipe.png)
 
+### Comment on recipes
+
+On posting a comment the logged in user is presented with the message 'Your comment has been created successfully. It will be visible once the admin approves.'
+
+Once the comment has been checked and approved by the admin it will be visible.
+![Comment](assets/pics/comments.png)
+![Comment message](assets/pics/commentmessage.png)
+
 ### User profile
 
 When the user logs in the 'My Profile' tab appears in the Navbar. On clicking 'My Profile' the profile detail page opens where the profile pic, name, username,user bio and user history can be viewed. User history shows when the profile was created and last edited.
@@ -171,24 +184,6 @@ The profile can be edited with clicking of the action edit icon. It is not manda
 
 On clicking 'Log Out' the user is redirected to the homepage where the recipes can be viewed, and with option to register and login.
 ![Log out](assets/pics/logout.png)
-
-### Log in
-
-On logging in the user is given the message 'Welcome, you are now logged in'
-![Log in](assets/pics/login.png)
-
-### Comment on recipes
-
-On posting a comment the logged in user is presented with the message 'Your comment has been created successfully. It will be visible once the admin approves.'
-
-Once the comment has been checked and approved by the admin it will be visible.
-![Comment](assets/pics/comments.png)
-![Comment message](assets/pics/commentmessage.png)
-
-### Footer
-
-The footer contains direct links to three social media sites (Facebook, Instagram and X,formally known as Twitter).
-![Footer](assets/pics/footer.png)
 
 # Testing
 
@@ -387,7 +382,7 @@ Incorrectly placed static files caused the application to fail in loading essent
 
 # Deployment
 
-Live Deployment: Find the application deployed on Heroku.
+Live Deployment: Find the application deployed on [Heroku](https://recipeblog-e0d016298fa8.herokuapp.com/).
 
 ## ElephantSQL (PostgreSQL)
 
